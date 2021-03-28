@@ -2,18 +2,19 @@ package com.example.ecommerce.ui.fragment.home
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.ecommerce.R
+import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.HomeViewModel
-import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
 class HomeFragment : Fragment() {
 
-    private val homeViewModel: HomeViewModel by inject()
+    private val homeViewModel: HomeViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -26,6 +27,10 @@ class HomeFragment : Fragment() {
         homeViewModel.sliderLiveData.observe(viewLifecycleOwner) {
             Log.i("LOG", "onViewCreated: $it")
         }
+        homeViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
+            progress(it)
+        }
+
     }
 
 
