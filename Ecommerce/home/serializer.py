@@ -1,3 +1,4 @@
+from django.utils.html import strip_tags
 from rest_framework import serializers
 from home.models import *
 
@@ -12,3 +13,14 @@ class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = "__all__"
+
+
+class AmazingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['detail'] = strip_tags(instance.detail)
+        return data

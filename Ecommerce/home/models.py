@@ -1,3 +1,4 @@
+from ckeditor_uploader.fields import RichTextUploadingField
 from django.db import models
 from django.utils.safestring import mark_safe
 from mptt.models import MPTTModel
@@ -21,9 +22,8 @@ class Category(MPTTModel):
         ('False', 'False')
     )
     parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200, verbose_name="name", null=False)
+    title = models.CharField(max_length=200, verbose_name="title", null=False)
     image = models.ImageField(verbose_name="image", upload_to='category')
-
     slug = models.SlugField(null=False, unique=True)
     status = models.CharField(max_length=10, choices=STATUS, default=True)
     create_at = models.DateTimeField(auto_now_add=True)
@@ -50,17 +50,18 @@ class Product(models.Model):
         ('True', 'True'),
         ('False', 'False')
     )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, default="")
-    title = models.CharField(max_length=30)
-    keywords = models.CharField(max_length=255)
-    description = models.CharField(max_length=255)
-    image = models.ImageField(blank=True, upload_to="image")
-    price = models.FloatField()
-    amount = models.IntegerField(null=False, blank=False, default=0)
-    minamount = models.IntegerField()
-    # detail = RichTextUploadingField()
-    slug = models.SlugField(null=False, unique=True)
-    status = models.CharField(max_length=10, choices=STATUS)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="category")
+    title = models.CharField(max_length=255, verbose_name="title")
+    keywords = models.CharField(max_length=255, verbose_name="keywords")
+    description = models.CharField(max_length=255, verbose_name="description")
+    image = models.ImageField(blank=False, null=False, upload_to="product_main")
+    price = models.IntegerField(verbose_name="price")
+    amount = models.IntegerField(null=False, blank=False, default=0, verbose_name="amount")
+    offer = models.IntegerField(verbose_name="offer")
+    detail = RichTextUploadingField(verbose_name="detail")
+    slug = models.SlugField(null=False, unique=True, verbose_name="slug")
+    status = models.CharField(max_length=10, choices=STATUS, verbose_name="status")
+    amazing = models.BooleanField(default=False)
     create_at = models.DateTimeField(auto_now_add=True)
     update_at = models.DateTimeField(auto_now=True)
 
@@ -74,9 +75,9 @@ class Product(models.Model):
 
 
 class Images(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50, blank=True)
-    image = models.ImageField(blank=True, upload_to="image")
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="product")
+    title = models.CharField(max_length=50, blank=True, verbose_name="title")
+    image = models.ImageField(blank=True, upload_to="product_image", verbose_name="image")
 
     def __str__(self):
         return self.title

@@ -5,7 +5,7 @@ from .models import *
 
 
 @admin.register(Slider)
-class ProductAdmin(admin.ModelAdmin):
+class SliderAdmin(admin.ModelAdmin):
     list_display = ('name', 'slider_image')
     readonly_fields = ('slider_image',)
 
@@ -18,7 +18,6 @@ class CategoryAdmin2(DraggableMPTTAdmin):
     list_display_links = ('indented_title',)
     prepopulated_fields = {'slug': ('title',)}
 
-    # inlines = [CategoryLangInline]
     def get_queryset(self, request):
         qs = super().get_queryset(request)
 
@@ -45,3 +44,19 @@ class CategoryAdmin2(DraggableMPTTAdmin):
         return instance.products_cumulative_count
 
     related_products_cumulative_count.short_description = 'Related products (in tree)'
+
+
+class ProductImageInline(admin.TabularInline):
+    model = Images
+    extra = 5
+
+
+@admin.register(Product)
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ['title', 'category', 'status', 'image_tag']
+    list_filter = ['category']
+    readonly_fields = ('image_tag',)
+    inlines = [ProductImageInline]
+    prepopulated_fields = {'slug': ('title',)}
+
+
