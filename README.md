@@ -12,3 +12,6 @@ free ecommerce application with kotlin and backend with django
 5. Migrate existing db tables by running `python manage.py migrate`
 
 6. Run the django development server using `python manage.py runserver`
+
+
+7. Run the django development server using (for ip address) `python manage.py runserver your ip address:8000`
