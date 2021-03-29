@@ -20,9 +20,10 @@ class Category(MPTTModel):
         ('True', 'True'),
         ('False', 'False')
     )
+    parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     title = models.CharField(max_length=200, verbose_name="name", null=False)
     image = models.ImageField(verbose_name="image", upload_to='category')
-    parent = TreeForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
+
     slug = models.SlugField(null=False, unique=True)
     status = models.CharField(max_length=10, choices=STATUS, default=True)
     create_at = models.DateTimeField(auto_now_add=True)
