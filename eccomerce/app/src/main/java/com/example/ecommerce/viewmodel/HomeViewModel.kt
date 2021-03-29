@@ -10,7 +10,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 
 class HomeViewModel(sliderRepository: SliderRepository) : BaseViewModel() {
-    val sliderLiveData = MutableLiveData<List<Slider>>()
+    val sliderLiveData = MutableLiveData<List<Slider>?>()
 
 
     init {

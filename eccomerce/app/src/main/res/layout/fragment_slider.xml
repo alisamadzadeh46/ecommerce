@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.example.ecommerce.custom.ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fragment_slider"
+    android:layout_width="match_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    app:roundedCornerRadius="8dp"
+    android:layout_height="wrap_content"
+    app:viewAspectRatio="1.33">
+
+</com.example.ecommerce.custom.ImageView>
