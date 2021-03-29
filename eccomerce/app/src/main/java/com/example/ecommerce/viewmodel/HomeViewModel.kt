@@ -2,22 +2,24 @@ package com.example.ecommerce.viewmodel
 
 
 import androidx.lifecycle.MutableLiveData
+import com.example.ecommerce.model.Category
 import com.example.ecommerce.model.Slider
+import com.example.ecommerce.repository.CategoryRepository
 import com.example.ecommerce.repository.SliderRepository
 import com.example.ecommerce.utils.BaseViewModel
 import com.example.ecommerce.utils.Observer
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.example.ecommerce.utils.singleHelper
 
-class HomeViewModel(sliderRepository: SliderRepository) : BaseViewModel() {
+
+class HomeViewModel(sliderRepository: SliderRepository, categoryRepository: CategoryRepository) :
+    BaseViewModel() {
     val sliderLiveData = MutableLiveData<List<Slider>?>()
-
+    val categoryLiveDate = MutableLiveData<List<Category>?>()
 
     init {
         progressbarLiveData.value = true
         sliderRepository.sliders()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .singleHelper()
             .doFinally {
                 progressbarLiveData.value = false
             }
@@ -26,5 +28,14 @@ class HomeViewModel(sliderRepository: SliderRepository) : BaseViewModel() {
                     sliderLiveData.value = t
                 }
             })
+        categoryRepository.category()
+            .singleHelper()
+            .subscribe(object : Observer<List<Category>>(compositeDisposable) {
+                override fun onSuccess(t: List<Category>?) {
+                    categoryLiveDate.value = t
+                }
+
+            })
+
     }
 }

@@ -1,5 +1,6 @@
 package com.example.ecommerce.network
 
+import com.example.ecommerce.model.Category
 import com.example.ecommerce.model.Slider
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
@@ -9,7 +10,10 @@ import retrofit2.http.GET
 
 interface ApiService {
     @GET("home")
-    fun home():Single<List<Slider>>
+    fun home(): Single<List<Slider>>
+
+    @GET("home/category")
+    fun category(): Single<List<Category>>
 }
 
 
