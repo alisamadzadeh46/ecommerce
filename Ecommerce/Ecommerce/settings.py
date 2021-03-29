@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'rest_framework',
     'drf_yasg',
+    'mptt',
+    'treewidget',
 ]
 
 MIDDLEWARE = [
