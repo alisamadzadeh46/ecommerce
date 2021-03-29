@@ -1,16 +1,21 @@
 package com.example.ecommerce.utils
 
 import android.app.Application
+import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.model.Category
 import com.example.ecommerce.network.client
+import com.example.ecommerce.repository.AmazingRepository
 import com.example.ecommerce.repository.CategoryRepository
 import com.example.ecommerce.repository.SliderRepository
 import com.example.ecommerce.repository.datasource.LocalSliderDataSource
+import com.example.ecommerce.repository.datasource.RemoteAmazingDataSource
 import com.example.ecommerce.repository.datasource.RemoteCategoryDataSource
 import com.example.ecommerce.repository.datasource.RemoteSliderDataSource
+import com.example.ecommerce.repository.impl.AmazingRepositoryImpl
 import com.example.ecommerce.repository.impl.CategoryRepositoryImpl
 import com.example.ecommerce.repository.impl.ImageLoadingImpl
 import com.example.ecommerce.repository.impl.SliderRepositoryImpl
+import com.example.ecommerce.ui.adapter.AmazingAdapter
 import com.example.ecommerce.ui.adapter.CategoryAdapter
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.viewmodel.HomeViewModel
@@ -40,9 +45,11 @@ class App : Application() {
                     RemoteCategoryDataSource(get())
                 )
             }
-            factory { (category: List<Category>) -> CategoryAdapter(category,get()) }
+            factory { (category: List<Category>) -> CategoryAdapter(category, get()) }
+            factory { (amazing: List<Amazing>) -> AmazingAdapter(amazing, get()) }
+            factory<AmazingRepository> { AmazingRepositoryImpl(RemoteAmazingDataSource(get())) }
             viewModel {
-                HomeViewModel(get(), get())
+                HomeViewModel(get(), get(), get())
             }
 
 

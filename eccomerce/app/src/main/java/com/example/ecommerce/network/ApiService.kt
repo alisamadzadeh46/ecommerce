@@ -1,5 +1,6 @@
 package com.example.ecommerce.network
 
+import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.model.Category
 import com.example.ecommerce.model.Slider
 import io.reactivex.rxjava3.core.Single
@@ -14,6 +15,9 @@ interface ApiService {
 
     @GET("home/category")
     fun category(): Single<List<Category>>
+
+    @GET("home/amazing")
+    fun amazing(): Single<List<Amazing>>
 }
 
 

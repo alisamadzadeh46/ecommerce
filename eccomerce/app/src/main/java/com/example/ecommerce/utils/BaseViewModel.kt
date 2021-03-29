@@ -5,7 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -39,7 +39,7 @@ abstract class Observer<T>(private val compositeDisposable: CompositeDisposable)
 }
 
 interface ViewProgress {
-    val root: ConstraintLayout?
+    val root: CoordinatorLayout?
     val myContext: Context?
     fun progress(show: Boolean) {
         root?.let { view ->
@@ -61,8 +61,8 @@ abstract class Activity : AppCompatActivity(), ViewProgress {
 }
 
 abstract class Fragment : Fragment(), ViewProgress {
-    override val root: ConstraintLayout?
-        get() = view as ConstraintLayout
+    override val root: CoordinatorLayout?
+        get() = view as CoordinatorLayout
     override val myContext: Context?
         get() = context
 }

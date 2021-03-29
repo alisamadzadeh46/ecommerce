@@ -9,7 +9,7 @@ import com.example.ecommerce.model.Category
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import kotlinx.android.synthetic.main.item_category.view.*
 
-class CategoryAdapter(val category: List<Category>,val imageLoading: ImageLoading) :
+class CategoryAdapter(val category: List<Category>, private val imageLoading: ImageLoading) :
     RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>() {
 
 

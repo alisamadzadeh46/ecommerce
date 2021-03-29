@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
+import com.example.ecommerce.ui.adapter.AmazingAdapter
 import com.example.ecommerce.ui.adapter.CategoryAdapter
 import com.example.ecommerce.ui.adapter.SliderAdapter
 import com.example.ecommerce.utils.Fragment
@@ -44,6 +45,12 @@ class HomeFragment : Fragment() {
             val categoryAdapter: CategoryAdapter by inject { parametersOf(it) }
             recyclerview_category.adapter = categoryAdapter
         }
+        homeViewModel.amazingLiveDate.observe(viewLifecycleOwner) {
+            val amazingAdapter: AmazingAdapter by inject { parametersOf(it) }
+            recyclerview_amazing.adapter = amazingAdapter
+        }
+        recyclerview_amazing.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         recyclerview_category.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
