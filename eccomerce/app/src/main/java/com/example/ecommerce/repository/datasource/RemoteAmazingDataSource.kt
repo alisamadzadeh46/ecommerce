@@ -5,6 +5,6 @@ import com.example.ecommerce.network.ApiService
 import io.reactivex.rxjava3.core.Single
 
 class RemoteAmazingDataSource(private val apiService: ApiService) : AmazingDataSource {
-    override fun amazing():Single<List<Amazing>> = apiService.amazing()
+    override fun amazing():Single<List<Amazing>> = apiService.product()
 
 }
