@@ -79,5 +79,8 @@ class Images(models.Model):
     title = models.CharField(max_length=50, blank=True, verbose_name="title")
     image = models.ImageField(blank=True, upload_to="product_image", verbose_name="image")
 
+    def image_tag(self):
+        return mark_safe('<img src="{}" height="50"/>'.format(self.image.url))
+
     def __str__(self):
         return self.title

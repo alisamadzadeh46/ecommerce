@@ -60,3 +60,7 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+@admin.register(Images)
+class Image(admin.ModelAdmin):
+    list_display = ['product', 'title', 'image_tag']
+    readonly_fields = ('image_tag',)

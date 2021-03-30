@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'treewidget',
     'ckeditor',
     'ckeditor_uploader',
+    'drf_multiple_model',
 ]
 
 MIDDLEWARE = [

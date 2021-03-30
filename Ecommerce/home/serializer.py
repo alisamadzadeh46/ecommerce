@@ -3,7 +3,7 @@ from rest_framework import serializers
 from home.models import *
 
 
-class ProductSerializer(serializers.ModelSerializer):
+class SliderSerializer(serializers.ModelSerializer):
     class Meta:
         model = Slider
         fields = "__all__"
@@ -15,7 +15,13 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class AmazingSerializer(serializers.ModelSerializer):
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Images
+        fields = "__all__"
+
+
+class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = "__all__"
