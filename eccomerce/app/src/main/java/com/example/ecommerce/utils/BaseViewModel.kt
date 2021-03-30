@@ -57,7 +57,10 @@ interface ViewProgress {
 }
 
 abstract class Activity : AppCompatActivity(), ViewProgress {
-
+    override val root: CoordinatorLayout?
+        get() = window.decorView as CoordinatorLayout
+    override val myContext: Context?
+        get() = this
 }
 
 abstract class Fragment : Fragment(), ViewProgress {
