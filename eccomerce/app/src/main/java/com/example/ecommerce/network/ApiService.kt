@@ -1,9 +1,6 @@
 package com.example.ecommerce.network
 
-import com.example.ecommerce.model.Amazing
-import com.example.ecommerce.model.Category
-import com.example.ecommerce.model.ProductDetail
-import com.example.ecommerce.model.Slider
+import com.example.ecommerce.model.*
 import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
@@ -26,12 +23,15 @@ interface ApiService {
     @GET("home/product/{id}/")
     fun detailProduct(@Path("id") id: Int): Single<ProductDetail>
 
+    @GET("home/property/{id}/")
+    fun propertyProduct(@Path("id") id: Int): Single<List<Property>>
+
 }
 
 
 fun client(): ApiService {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.33:8000/")
+        .baseUrl("http://192.168.1.34:8000/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()

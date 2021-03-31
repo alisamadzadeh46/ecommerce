@@ -7,7 +7,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import com.example.ecommerce.R
+import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.DetailProductViewModel
@@ -22,6 +24,7 @@ class DetailProductFragment : Fragment() {
     private val imageLoading: ImageLoading by inject()
     var args: DetailProductFragmentArgs? = null
     var id: Int? = null
+    val amazing: Amazing? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,7 +51,18 @@ class DetailProductFragment : Fragment() {
             ("available colors : " + it.Product[0].color).also { color -> color_text.text = color }
             ("detail : " + it.Product[0].detail).also { de -> detail.text = de }
         }
-
+        detailProductViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
+            progress(it)
+        }
+        technical_specifications.setOnClickListener {
+            val directions =
+                amazing?.let { it1 ->
+                    DetailProductFragmentDirections.actionDetailProductFragmentToPropertyFragment(
+                        it1
+                    )
+                }
+            directions?.let { it1 -> it.findNavController().navigate(it1) }
+        }
 
     }
 

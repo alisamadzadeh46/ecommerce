@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layoutDirection="ltr"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
     tools:context=".ui.fragment.detail.DetailProductFragment">
 
 
@@ -108,18 +108,18 @@
                 android:layout_marginTop="8dp"
                 android:isIndicator="true"
                 android:numStars="5"
+                android:progressTint="@color/yellow"
                 android:rating="2.5"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title"
-                android:progressTint="@color/yellow" />
+                app:layout_constraintTop_toBottomOf="@id/title" />
 
             <ImageView
                 android:id="@+id/warranty_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:contentDescription="@string/app_name"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/rating"
                 app:srcCompat="@drawable/ic_outline_add_warranty_24" />
 
@@ -127,9 +127,9 @@
                 android:id="@+id/warranty_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:textColor="@color/black"
-                app:layout_constraintEnd_toStartOf="@+id/warranty_image"
+                app:layout_constraintStart_toEndOf="@+id/warranty_image"
                 app:layout_constraintTop_toBottomOf="@+id/rating" />
 
             <ImageView
@@ -137,9 +137,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
                 android:contentDescription="@string/app_name"
-                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/warranty_image"
                 app:srcCompat="@drawable/ic_outline_color_lens_24" />
 
@@ -148,6 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:layout_marginStart="16dp"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/warranty_text"
                 app:layout_constraintStart_toStartOf="@+id/warranty_text"
@@ -195,10 +196,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
             <TextView
                 android:id="@+id/detail"
                 android:layout_width="0dp"
@@ -206,9 +209,33 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
                 android:textColor="@color/black"
+                android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/introduction" />
+
+
+            <ImageView
+                android:id="@+id/image_technical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:contentDescription="@string/app_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail"
+                app:srcCompat="@drawable/ic_sharp_chevron_right_24" />
+
+            <TextView
+                android:id="@+id/technical_specifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:text="@string/technical_specifications"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/detail" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_rating"
@@ -217,7 +244,7 @@
                 android:layout_margin="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/detail" />
+                app:layout_constraintTop_toBottomOf="@+id/technical_specifications" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
