@@ -64,3 +64,8 @@ class ProductAdmin(admin.ModelAdmin):
 class Image(admin.ModelAdmin):
     list_display = ['product', 'title', 'image_tag']
     readonly_fields = ('image_tag',)
+
+
+@admin.register(Property)
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ['product', 'title', 'value']

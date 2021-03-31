@@ -28,3 +28,12 @@ class DetailProduct(ObjectMultipleModelAPIView):
         )
 
         return querylist
+
+
+class PropertyProduct(ListAPIView):
+    serializer_class = PropertySerializer
+
+    def get_queryset(self):
+        id = self.kwargs['pk']
+        queryset = Property.objects.filter(product=id)
+        return queryset

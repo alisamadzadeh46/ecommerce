@@ -30,3 +30,9 @@ class ProductSerializer(serializers.ModelSerializer):
         data = super().to_representation(instance)
         data['detail'] = strip_tags(instance.detail)
         return data
+
+
+class PropertySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Property
+        fields = "__all__"
