@@ -6,6 +6,7 @@ import com.example.ecommerce.model.Property
 import com.example.ecommerce.repository.PropertyProductRepository
 import com.example.ecommerce.utils.BaseViewModel
 import com.example.ecommerce.utils.Observer
+import com.example.ecommerce.utils.singleHelper
 
 class PropertyProductViewModel(
     propertyProductRepository: PropertyProductRepository,
@@ -19,6 +20,7 @@ class PropertyProductViewModel(
         progressbarLiveData.value = true
         propertyProductIdLiveData.value = id
         propertyProductRepository.propertyProduct(propertyProductIdLiveData.value!!)
+            .singleHelper()
             .doFinally {
                 progressbarLiveData.value = false
             }

@@ -24,18 +24,20 @@ class DetailProductFragment : Fragment() {
     private val imageLoading: ImageLoading by inject()
     var args: DetailProductFragmentArgs? = null
     var id: Int? = null
-    val amazing: Amazing? = null
+    val amazing: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_detail_product, container, false)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         args = arguments?.let { DetailProductFragmentArgs.fromBundle(it) }
         id = args?.amazing?.id
+
         detailProductViewModel.detailProductLiveData.observe(viewLifecycleOwner) {
             imageLoading.load(image, it.Images[0].image)
             ("name : " + it.Product[0].title).also { name -> title.text = name }
@@ -55,13 +57,11 @@ class DetailProductFragment : Fragment() {
             progress(it)
         }
         technical_specifications.setOnClickListener {
-            val directions =
-                amazing?.let { it1 ->
-                    DetailProductFragmentDirections.actionDetailProductFragmentToPropertyFragment(
-                        it1
-                    )
-                }
-            directions?.let { it1 -> it.findNavController().navigate(it1) }
+            it.findNavController().navigate(
+                DetailProductFragmentDirections.actionDetailProductFragmentToPropertyFragment(
+                    args?.amazing!!
+                )
+            )
         }
 
     }
