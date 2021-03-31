@@ -75,4 +75,5 @@ dependencies {
     implementation "com.squareup.retrofit2:adapter-rxjava3:$adapter_rxjava3"
     def indicator = "4.1.2"
     implementation "com.tbuonomo.andrui:viewpagerdotsindicator:$indicator"
+
 }

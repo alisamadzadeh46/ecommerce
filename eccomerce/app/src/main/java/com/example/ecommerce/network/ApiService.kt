@@ -9,7 +9,9 @@ import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.HEAD
 import retrofit2.http.Path
+
 
 interface ApiService {
     @GET("home")
@@ -21,8 +23,9 @@ interface ApiService {
     @GET("home/product")
     fun product(): Single<List<Amazing>>
 
-    @GET("home/product/{id}")
-    fun detailProduct(@Path("id") id: Int): Single<List<ProductDetail>>
+    @GET("home/product/{id}/")
+    fun detailProduct(@Path("id") id: Int): Single<ProductDetail>
+
 }
 
 

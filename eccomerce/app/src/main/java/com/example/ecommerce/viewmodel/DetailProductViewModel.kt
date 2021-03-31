@@ -2,28 +2,33 @@ package com.example.ecommerce.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import com.example.ecommerce.model.ProductDetail
-import com.example.ecommerce.model.Slider
 import com.example.ecommerce.repository.DetailProductRepository
 import com.example.ecommerce.utils.BaseViewModel
 import com.example.ecommerce.utils.Observer
 import com.example.ecommerce.utils.singleHelper
 
 class DetailProductViewModel(
-    private val detailProductRepository: DetailProductRepository,
+    detailProductRepository: DetailProductRepository,
     val id: Int
+
 ) :
     BaseViewModel() {
-    val detailProductLiveData = MutableLiveData<List<ProductDetail>?>()
-    val detailProductIdLiveData = MutableLiveData<Int>()
+    val detailProductLiveData = MutableLiveData<ProductDetail>()
+    private val detailProductIdLiveData = MutableLiveData<Int>()
 
     init {
         progressbarLiveData.value = true
-        detailProductRepository.detailProduct(id)
+        detailProductIdLiveData.value = id
+        detailProductRepository.detailProduct(detailProductIdLiveData.value!!)
             .singleHelper()
-            .subscribe(object : Observer<List<ProductDetail>>(compositeDisposable) {
-                override fun onSuccess(t: List<ProductDetail>?) {
-
+            .doFinally {
+                progressbarLiveData.value = false
+            }
+            .subscribe(object : Observer<ProductDetail>(compositeDisposable) {
+                override fun onSuccess(t: ProductDetail) {
+                    detailProductLiveData.value = t
                 }
             })
+
     }
 }

@@ -15,7 +15,6 @@
         android:theme="@style/Theme.Ecommerce"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
-        <activity android:name="com.example.ecommerce.ui.activity.detail.DetailProductActivity"/>
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

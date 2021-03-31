@@ -9,5 +9,18 @@
         android:id="@+id/homeFragment"
         android:name="com.example.ecommerce.ui.fragment.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment"
+        android:name="com.example.ecommerce.ui.fragment.detail.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" >
+        <argument
+            android:name="amazing"
+            app:argType="com.example.ecommerce.model.Amazing" />
+    </fragment>
 </navigation>

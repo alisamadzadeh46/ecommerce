@@ -1,5 +1,9 @@
 package com.example.ecommerce.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Amazing(
     val amazing: Boolean,
     val amount: Int,
@@ -16,4 +20,4 @@ data class Amazing(
     val status: String,
     val title: String,
     val update_at: String
-)
+):Parcelable

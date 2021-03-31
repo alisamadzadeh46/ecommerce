@@ -4,9 +4,11 @@ import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerce.R
 import com.example.ecommerce.model.Amazing
+import com.example.ecommerce.ui.fragment.home.HomeFragmentDirections
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import kotlinx.android.synthetic.main.amazing_item.view.*
 
@@ -31,11 +33,16 @@ class AmazingAdapter(private val amazing: List<Amazing>, private val imageLoadin
     class AmazingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(amazing: Amazing, imageLoading: ImageLoading) {
             itemView.apply {
+                setOnClickListener {
+                    val directions =
+                        HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(amazing)
+                    it.findNavController().navigate(directions)
+                }
                 imageLoading.load(amazing_image, amazing.image)
                 amazing_text.text = amazing.title
                 (" $" + amazing.price.toString()).also { price.text = it }
                 (" $" + amazing.offer.toString()).also { offer.text = it }
-                offer.paintFlags=Paint.STRIKE_THRU_TEXT_FLAG
+                offer.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 (amazing.amount.toString() + " % ").also { amount.text = it }
             }
         }
