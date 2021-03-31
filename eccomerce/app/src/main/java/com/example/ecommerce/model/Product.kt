@@ -15,5 +15,9 @@ data class Product(
     val slug: String,
     val status: String,
     val title: String,
-    val update_at: String
+    val update_at: String,
+    val color: String,
+    val warranty: String,
+    val score: Float,
+    val club:String
 )

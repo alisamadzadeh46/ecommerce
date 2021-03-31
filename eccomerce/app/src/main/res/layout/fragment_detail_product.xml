@@ -3,8 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layoutDirection="ltr"
     android:layout_height="match_parent"
-    tools:context=".ui.activity.detail.DetailProductActivity">
+    tools:context=".ui.fragment.detail.DetailProductFragment">
+
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -79,7 +81,7 @@
 
             <com.example.ecommerce.custom.ImageView
                 android:id="@+id/image"
-                android:layout_width="wrap_content"
+                android:layout_width="400dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -93,6 +95,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/image" />
@@ -108,7 +111,7 @@
                 android:rating="2.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"
-                tools:progressTint="@color/yellow" />
+                android:progressTint="@color/yellow" />
 
             <ImageView
                 android:id="@+id/warranty_image"
@@ -125,6 +128,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toStartOf="@+id/warranty_image"
                 app:layout_constraintTop_toBottomOf="@+id/rating" />
 
@@ -144,6 +148,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/warranty_text"
                 app:layout_constraintStart_toStartOf="@+id/warranty_text"
                 app:layout_constraintTop_toBottomOf="@+id/warranty_text" />
@@ -174,11 +179,11 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/score"
+                        android:id="@+id/club"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:padding="8dp"
-                        android:textColor="@color/teal_700" />
+                        android:textColor="@color/black" />
 
                 </LinearLayout>
 
@@ -190,29 +195,20 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
             <TextView
-                android:id="@+id/technical_specifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="@string/technical_specifications"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/introduction" />
-
-            <ImageView
-                android:layout_width="wrap_content"
+                android:id="@+id/detail"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:contentDescription="@string/app_name"
+                android:layout_marginEnd="16dp"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/introduction"
-                app:srcCompat="@drawable/ic_sharp_chevron_left_24" />
+                app:layout_constraintTop_toBottomOf="@+id/introduction" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview_rating"
@@ -221,7 +217,7 @@
                 android:layout_margin="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/technical_specifications" />
+                app:layout_constraintTop_toBottomOf="@+id/detail" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
@@ -246,10 +242,10 @@
                 tools:ignore="RelativeOverlap" />
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_centerVertical="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/price"
