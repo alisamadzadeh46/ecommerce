@@ -37,3 +37,12 @@ class PropertyProduct(ListAPIView):
         id = self.kwargs['pk']
         queryset = Property.objects.filter(product=id)
         return queryset
+
+
+class RatingProduct(ListAPIView):
+    serializer_class = RatingSerializer
+
+    def get_queryset(self):
+        id = self.kwargs['pk']
+        queryset = Rating.objects.filter(product=id)
+        return queryset

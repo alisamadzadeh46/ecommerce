@@ -97,3 +97,12 @@ class Property(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Rating(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name="product")
+    title = models.CharField(max_length=50, blank=True, verbose_name="title")
+    value = models.FloatField(max_length=50, blank=True, verbose_name="value")
+
+    def __str__(self):
+        return self.title

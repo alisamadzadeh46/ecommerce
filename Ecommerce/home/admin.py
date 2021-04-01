@@ -69,3 +69,8 @@ class Image(admin.ModelAdmin):
 @admin.register(Property)
 class PropertyAdmin(admin.ModelAdmin):
     list_display = ['product', 'title', 'value']
+
+
+@admin.register(Rating)
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ['product', 'title', 'value']

@@ -9,4 +9,5 @@ urlpatterns = [
     path('product/', ProductList.as_view(), name='amazing'),
     path('product/<int:pk>/', DetailProduct.as_view(), name='product'),
     path('property/<int:pk>/', PropertyProduct.as_view(), name='property'),
+    path('rating/<int:pk>/', RatingProduct.as_view(), name='rating'),
 ]
