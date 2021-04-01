@@ -16,6 +16,7 @@ import com.example.ecommerce.ui.adapter.PropertyProductAdapter
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.viewmodel.DetailProductViewModel
 import com.example.ecommerce.viewmodel.HomeViewModel
+import com.example.ecommerce.viewmodel.PriceProductViewModel
 import com.example.ecommerce.viewmodel.PropertyProductViewModel
 import com.facebook.drawee.backends.pipeline.Fresco
 import org.koin.android.ext.koin.androidContext
@@ -67,6 +68,11 @@ class App : Application() {
                     RemoteRatingProductDataSource(get())
                 )
             }
+            factory<PriceProductRepository> {
+                PriceProductRepositorylmpl(
+                    RemotePriceProductDataSource(get())
+                )
+            }
             viewModel {
                 HomeViewModel(get(), get(), get())
             }
@@ -75,6 +81,9 @@ class App : Application() {
             }
             viewModel { (id: Int) ->
                 PropertyProductViewModel(get(), id)
+            }
+            viewModel { (id: Int) ->
+                PriceProductViewModel(get(), id)
             }
 
 

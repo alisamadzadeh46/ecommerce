@@ -7,25 +7,23 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.ecommerce.R
+import com.example.ecommerce.utils.Fragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_bottom_sheet_dialog.*
 
 
 class BottomSheetDialogFragment : BottomSheetDialogFragment() {
-    var myView: View? = null
     var args: BottomSheetDialogFragmentArgs? = null
     var title: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        if (myView == null) {
-            myView = inflater.inflate(R.layout.fragment_bottom_sheet_dialog, container, false)
-        }
-        return myView
-
-
+        return inflater.inflate(R.layout.fragment_bottom_sheet_dialog, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,6 +40,13 @@ class BottomSheetDialogFragment : BottomSheetDialogFragment() {
 
             }
             startActivity(Intent.createChooser(intent, "Product Name"))
+        }
+        text_chart.setOnClickListener {
+            findNavController().navigate(
+                BottomSheetDialogFragmentDirections.actionBottomSheetDialogFragment2ToChartFragment(
+                    args?.amazing!!
+                )
+            )
         }
 
     }

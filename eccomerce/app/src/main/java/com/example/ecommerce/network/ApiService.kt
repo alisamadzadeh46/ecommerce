@@ -5,9 +5,7 @@ import io.reactivex.rxjava3.core.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.HEAD
-import retrofit2.http.Path
+import retrofit2.http.*
 
 
 interface ApiService {
@@ -28,6 +26,9 @@ interface ApiService {
 
     @GET("home/rating/{id}/")
     fun ratingProduct(@Path("id") id: Int): Single<List<Rating>>
+
+    @GET("home/price/")
+    fun priceProduct(@Query("id") id: Int): Single<List<Price>>
 
 }
 
