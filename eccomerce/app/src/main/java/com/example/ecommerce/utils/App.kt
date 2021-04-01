@@ -4,10 +4,12 @@ import android.app.Application
 import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.model.Category
 import com.example.ecommerce.model.Property
+import com.example.ecommerce.model.Rating
 import com.example.ecommerce.network.client
 import com.example.ecommerce.repository.*
 import com.example.ecommerce.repository.datasource.*
 import com.example.ecommerce.repository.impl.*
+import com.example.ecommerce.ui.adapter.AdapterRatingProduct
 import com.example.ecommerce.ui.adapter.AmazingAdapter
 import com.example.ecommerce.ui.adapter.CategoryAdapter
 import com.example.ecommerce.ui.adapter.PropertyProductAdapter
@@ -44,6 +46,7 @@ class App : Application() {
             factory { (category: List<Category>) -> CategoryAdapter(category, get()) }
             factory { (amazing: List<Amazing>) -> AmazingAdapter(amazing, get()) }
             factory { (property: List<Property>) -> PropertyProductAdapter(property) }
+            factory { (rating: List<Rating>) -> AdapterRatingProduct(rating) }
             factory<AmazingRepository> { AmazingRepositoryImpl(RemoteAmazingDataSource(get())) }
             factory<DetailProductRepository> {
                 DetailProductRepositorylmpl(
@@ -59,11 +62,16 @@ class App : Application() {
                     )
                 )
             }
+            factory<RatingProductRepository> {
+                RatingProductRepositoryImpl(
+                    RemoteRatingProductDataSource(get())
+                )
+            }
             viewModel {
                 HomeViewModel(get(), get(), get())
             }
             viewModel { (id: Int) ->
-                DetailProductViewModel(get(), id)
+                DetailProductViewModel(get(), get(), id)
             }
             viewModel { (id: Int) ->
                 PropertyProductViewModel(get(), id)

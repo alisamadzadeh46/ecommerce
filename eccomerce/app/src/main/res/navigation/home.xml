@@ -25,6 +25,9 @@
         <action
             android:id="@+id/action_detailProductFragment_to_propertyFragment"
             app:destination="@id/propertyFragment" />
+        <action
+            android:id="@+id/action_detailProductFragment_to_bottomSheetDialogFragment2"
+            app:destination="@id/bottomSheetDialogFragment2" />
     </fragment>
     <fragment
         android:id="@+id/propertyFragment"
@@ -35,4 +38,13 @@
             android:name="amazing"
             app:argType="com.example.ecommerce.model.Amazing" />
     </fragment>
+    <dialog
+        android:id="@+id/bottomSheetDialogFragment2"
+        android:name="com.example.ecommerce.ui.fragment.detail.BottomSheetDialogFragment"
+        android:label="fragment_bottom_sheet_dialog"
+        tools:layout="@layout/fragment_bottom_sheet_dialog" >
+        <argument
+            android:name="amazing"
+            app:argType="com.example.ecommerce.model.Amazing" />
+    </dialog>
 </navigation>

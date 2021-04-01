@@ -1,18 +1,20 @@
 package com.example.ecommerce.ui.fragment.detail
 
+
 import android.graphics.Paint
 import android.os.Bundle
-import android.util.Log
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
-import com.example.ecommerce.model.Amazing
+import com.example.ecommerce.ui.adapter.AdapterRatingProduct
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.DetailProductViewModel
+
 import kotlinx.android.synthetic.main.fragment_detail_product.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -37,6 +39,17 @@ class DetailProductFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         args = arguments?.let { DetailProductFragmentArgs.fromBundle(it) }
         id = args?.amazing?.id
+        close_image.setOnClickListener {
+            it.findNavController().popBackStack()
+        }
+        more_image.setOnClickListener {
+            it.findNavController().navigate(
+                DetailProductFragmentDirections.actionDetailProductFragmentToBottomSheetDialogFragment2(
+                    args?.amazing!!
+                )
+            )
+
+        }
 
         detailProductViewModel.detailProductLiveData.observe(viewLifecycleOwner) {
             imageLoading.load(image, it.Images[0].image)
@@ -56,6 +69,10 @@ class DetailProductFragment : Fragment() {
         detailProductViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
             progress(it)
         }
+        detailProductViewModel.ratingProductLiveData.observe(viewLifecycleOwner) {
+            val adapterRatingProduct: AdapterRatingProduct by inject { parametersOf(it) }
+            recyclerview_rating.adapter = adapterRatingProduct
+        }
         technical_specifications.setOnClickListener {
             it.findNavController().navigate(
                 DetailProductFragmentDirections.actionDetailProductFragmentToPropertyFragment(
@@ -63,6 +80,8 @@ class DetailProductFragment : Fragment() {
                 )
             )
         }
+        recyclerview_rating.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
     }
 

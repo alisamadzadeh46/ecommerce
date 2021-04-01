@@ -10,4 +10,7 @@
     <string name="search_in_ecommerce">Search in ecommerce</string>
     <string name="technical_specifications">Technical Specifications</string>
     <string name="add_to_cart">Add to Cart</string>
+    <string name="price_chart">Price chart</string>
+    <string name="product_comparison">Product comparison</string>
+    <string name="share">Share</string>
 </resources>
