@@ -10,6 +10,7 @@ import com.example.ecommerce.R
 import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.ui.fragment.home.HomeFragmentDirections
 import com.example.ecommerce.ui.fragment.home.ImageLoading
+import com.example.ecommerce.utils.ChangeNumber
 import kotlinx.android.synthetic.main.amazing_item.view.*
 
 class AmazingAdapter(private val amazing: List<Amazing>, private val imageLoading: ImageLoading) :
@@ -40,8 +41,8 @@ class AmazingAdapter(private val amazing: List<Amazing>, private val imageLoadin
                 }
                 imageLoading.load(amazing_image, amazing.image)
                 amazing_text.text = amazing.title
-                (" $" + amazing.price.toString()).also { price.text = it }
-                (" $" + amazing.offer.toString()).also { offer.text = it }
+                (" $" + ChangeNumber().format(amazing.price)).also { price.text = it }
+                (" $" + ChangeNumber().format(amazing.offer)).also { offer.text = it }
                 offer.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 (amazing.amount.toString() + " % ").also { amount.text = it }
             }

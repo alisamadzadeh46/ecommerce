@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
 import com.example.ecommerce.ui.adapter.AdapterRatingProduct
 import com.example.ecommerce.ui.fragment.home.ImageLoading
+import com.example.ecommerce.utils.ChangeNumber
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.DetailProductViewModel
 
@@ -59,8 +60,8 @@ class DetailProductFragment : Fragment() {
                 warranty_text.text = warranty
             }
             ("club : " + it.Product[0].club).also { cl -> club.text = cl }
-            ("$" + it.Product[0].price.toString()).also { p -> price.text = p }
-            ("$" + it.Product[0].offer.toString()).also { o -> offer.text = o }
+            ("$" + ChangeNumber().format(it.Product[0].price)).also { p -> price.text = p }
+            ("$" + ChangeNumber().format(it.Product[0].offer)).also { o -> offer.text = o }
             price.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
             ("description : " + it.Product[0].description).also { int -> introduction.text = int }
             ("available colors : " + it.Product[0].color).also { color -> color_text.text = color }

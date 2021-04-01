@@ -14,8 +14,8 @@
 
     <com.example.ecommerce.custom.ImageView
         android:id="@+id/amazing_image"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:contentDescription="@string/app_name"
         android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
