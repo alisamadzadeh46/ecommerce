@@ -74,3 +74,9 @@ class PropertyAdmin(admin.ModelAdmin):
 @admin.register(Rating)
 class PropertyAdmin(admin.ModelAdmin):
     list_display = ['product', 'title', 'value']
+
+
+@admin.register(Price)
+class PriceAdmin(admin.ModelAdmin):
+    list_display = ['product', 'title', 'price']
+

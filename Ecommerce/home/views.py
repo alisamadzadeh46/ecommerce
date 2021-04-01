@@ -46,3 +46,14 @@ class RatingProduct(ListAPIView):
         id = self.kwargs['pk']
         queryset = Rating.objects.filter(product=id)
         return queryset
+
+
+class PriceProduct(ListAPIView):
+    serializer_class = PriceSerializer
+
+    def get_queryset(self):
+        queryset = Price.objects.all()
+        id = self.request.query_params.get('id')
+        if id is not None:
+            queryset = queryset.filter(product=id)
+        return queryset

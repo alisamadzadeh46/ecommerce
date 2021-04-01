@@ -106,3 +106,14 @@ class Rating(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Price(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='children', verbose_name="product")
+    title = models.CharField(max_length=50, blank=False, null=False, verbose_name="title")
+    price = models.IntegerField(blank=False, verbose_name="price", null=False)
+    create_at = models.DateField(auto_now_add=True)
+    update_at = models.DateField(auto_now=True)
+
+    def __str__(self):
+        return self.title
