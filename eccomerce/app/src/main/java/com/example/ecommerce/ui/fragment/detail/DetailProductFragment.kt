@@ -11,12 +11,15 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
 import com.example.ecommerce.ui.adapter.AdapterRatingProduct
+import com.example.ecommerce.ui.adapter.SliderAdapter
+import com.example.ecommerce.ui.adapter.SliderAdapterDetailProduct
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.ChangeNumber
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.DetailProductViewModel
 
 import kotlinx.android.synthetic.main.fragment_detail_product.*
+import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -24,7 +27,6 @@ import org.koin.core.parameter.parametersOf
 
 class DetailProductFragment : Fragment() {
     private val detailProductViewModel: DetailProductViewModel by viewModel { parametersOf(id) }
-    private val imageLoading: ImageLoading by inject()
     var args: DetailProductFragmentArgs? = null
     var id: Int? = null
     val amazing: String? = null
@@ -53,7 +55,6 @@ class DetailProductFragment : Fragment() {
         }
 
         detailProductViewModel.detailProductLiveData.observe(viewLifecycleOwner) {
-            imageLoading.load(image, it.Images[0].image)
             ("name : " + it.Product[0].title).also { name -> title.text = name }
             rating.rating = it.Product[0].score
             ("warranty : " + it.Product[0].warranty).also { warranty ->
@@ -66,6 +67,9 @@ class DetailProductFragment : Fragment() {
             ("description : " + it.Product[0].description).also { int -> introduction.text = int }
             ("available colors : " + it.Product[0].color).also { color -> color_text.text = color }
             ("detail : " + it.Product[0].detail).also { de -> detail.text = de }
+            val sliderAdapter = SliderAdapterDetailProduct(this,it.Images)
+            image.adapter = sliderAdapter
+            dots_indicator_detail.setViewPager2(image)
         }
         detailProductViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
             progress(it)

@@ -79,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.example.ecommerce.custom.ImageView
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/image"
                 android:layout_width="400dp"
                 android:layout_height="300dp"
@@ -87,7 +87,22 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
+            <com.tbuonomo.viewpagerdotsindicator.DotsIndicator
+                android:id="@+id/dots_indicator_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                app:dotsColor="@color/teal_700"
+                app:dotsCornerRadius="8dp"
+                app:dotsSize="8dp"
+                android:layout_margin="12dp"
+                app:dotsSpacing="4dp"
+                app:dotsWidthFactor="5"
+                app:progressMode="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/image"
+                app:selectedDotColor="@color/light_black" />
             <TextView
                 android:id="@+id/title"
                 android:layout_width="0dp"
@@ -98,7 +113,7 @@
                 android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/image" />
+                app:layout_constraintTop_toBottomOf="@id/dots_indicator_detail" />
 
             <RatingBar
                 android:id="@+id/rating"
