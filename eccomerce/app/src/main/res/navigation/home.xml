@@ -20,8 +20,8 @@
         android:label="fragment_detail_product"
         tools:layout="@layout/fragment_detail_product" >
         <argument
-            android:name="amazing"
-            app:argType="com.example.ecommerce.model.Amazing" />
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
         <action
             android:id="@+id/action_detailProductFragment_to_propertyFragment"
             app:destination="@id/propertyFragment" />
@@ -35,8 +35,8 @@
         android:label="fragment_property"
         tools:layout="@layout/fragment_property" >
         <argument
-            android:name="amazing"
-            app:argType="com.example.ecommerce.model.Amazing" />
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
     </fragment>
     <dialog
         android:id="@+id/bottomSheetDialogFragment2"
@@ -44,8 +44,8 @@
         android:label="fragment_bottom_sheet_dialog"
         tools:layout="@layout/fragment_bottom_sheet_dialog" >
         <argument
-            android:name="amazing"
-            app:argType="com.example.ecommerce.model.Amazing" />
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
         <action
             android:id="@+id/action_bottomSheetDialogFragment2_to_chartFragment"
             app:destination="@id/chartFragment" />
@@ -59,8 +59,8 @@
         android:label="fragment_chart"
         tools:layout="@layout/fragment_chart" >
         <argument
-            android:name="amazing"
-            app:argType="com.example.ecommerce.model.Amazing" />
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
     </fragment>
     <fragment
         android:id="@+id/comparisonListFragment"
@@ -68,7 +68,7 @@
         android:label="fragment_comparison_list"
         tools:layout="@layout/fragment_comparison_list" >
         <argument
-            android:name="amazing"
-            app:argType="com.example.ecommerce.model.Amazing" />
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
     </fragment>
 </navigation>

@@ -1,5 +1,9 @@
 package com.example.ecommerce.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
 data class Product(
     val amazing: Boolean,
     val amount: Int,
@@ -20,4 +24,4 @@ data class Product(
     val warranty: String,
     val score: Float,
     val club:String
-)
+): Parcelable

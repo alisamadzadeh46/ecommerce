@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerce.R
-import com.example.ecommerce.model.Amazing
+import com.example.ecommerce.model.Product
 import com.example.ecommerce.ui.fragment.home.HomeFragmentDirections
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.ChangeNumber
 import kotlinx.android.synthetic.main.amazing_item.view.*
 
-class AmazingAdapter(private val amazing: List<Amazing>, private val imageLoading: ImageLoading) :
+class AmazingAdapter(private val product: List<Product>, private val imageLoading: ImageLoading) :
     RecyclerView.Adapter<AmazingAdapter.AmazingViewHolder>() {
 
 
@@ -29,27 +29,27 @@ class AmazingAdapter(private val amazing: List<Amazing>, private val imageLoadin
     }
 
     override fun onBindViewHolder(holder: AmazingViewHolder, position: Int) {
-        val amazing = amazing[position]
+        val amazing = product[position]
         holder.bind(amazing, imageLoading)
     }
 
-    override fun getItemCount(): Int = amazing.size
+    override fun getItemCount(): Int = product.size
 
 
     class AmazingViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(amazing: Amazing, imageLoading: ImageLoading) {
+        fun bind(product: Product, imageLoading: ImageLoading) {
             itemView.apply {
                 setOnClickListener {
                     val directions =
-                        HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(amazing)
+                        HomeFragmentDirections.actionHomeFragmentToDetailProductFragment(product)
                     it.findNavController().navigate(directions)
                 }
-                imageLoading.load(amazing_image, amazing.image)
-                amazing_text.text = amazing.title
-                (" $" + ChangeNumber().format(amazing.price)).also { price.text = it }
-                (" $" + ChangeNumber().format(amazing.offer)).also { offer.text = it }
+                imageLoading.load(amazing_image, product.image)
+                amazing_text.text = product.title
+                (" $" + ChangeNumber().format(product.price)).also { price.text = it }
+                (" $" + ChangeNumber().format(product.offer)).also { offer.text = it }
                 offer.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-                (amazing.amount.toString() + " % ").also { amount.text = it }
+                (product.amount.toString() + " % ").also { amount.text = it }
             }
         }
     }

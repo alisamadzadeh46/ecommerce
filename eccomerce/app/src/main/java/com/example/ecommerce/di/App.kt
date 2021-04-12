@@ -1,8 +1,8 @@
 package com.example.ecommerce.di
 
 import android.app.Application
-import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.model.Category
+import com.example.ecommerce.model.Product
 import com.example.ecommerce.model.Property
 import com.example.ecommerce.model.Rating
 import com.example.ecommerce.network.client
@@ -39,7 +39,7 @@ class App : Application() {
                 )
             }
             factory { (category: List<Category>) -> CategoryAdapter(category, get()) }
-            factory { (amazing: List<Amazing>) -> AmazingAdapter(amazing, get()) }
+            factory { (product: List<Product>) -> AmazingAdapter(product, get()) }
             factory { (property: List<Property>) -> PropertyProductAdapter(property) }
             factory { (rating: List<Rating>) -> AdapterRatingProduct(rating) }
             factory<AmazingRepository> { AmazingRepositoryImpl(RemoteAmazingDataSource(get())) }

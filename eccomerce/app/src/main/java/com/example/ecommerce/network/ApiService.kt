@@ -16,7 +16,7 @@ interface ApiService {
     fun category(): Single<List<Category>>
 
     @GET("home/product")
-    fun product(): Single<List<Amazing>>
+    fun product(): Single<List<Product>>
 
     @GET("home/product/{id}/")
     fun detailProduct(@Path("id") id: Int): Single<ProductDetail>

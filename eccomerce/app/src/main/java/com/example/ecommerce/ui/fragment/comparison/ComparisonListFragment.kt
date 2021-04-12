@@ -33,7 +33,7 @@ class ComparisonListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         args = arguments?.let { ComparisonListFragmentArgs.fromBundle(it) }
-        id = args?.amazing?.category
+        id = args?.product?.category
         "Comparison Product List".also { text_toolbar.text = it }
         image_back.setOnClickListener {
             it.findNavController().popBackStack()

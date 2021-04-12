@@ -41,14 +41,14 @@ class DetailProductFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         args = arguments?.let { DetailProductFragmentArgs.fromBundle(it) }
-        id = args?.amazing?.id
+        id = args?.product?.id
         close_image.setOnClickListener {
             it.findNavController().popBackStack()
         }
         more_image.setOnClickListener {
             it.findNavController().navigate(
                 DetailProductFragmentDirections.actionDetailProductFragmentToBottomSheetDialogFragment2(
-                    args?.amazing!!
+                    args?.product!!
                 )
             )
 
@@ -81,7 +81,7 @@ class DetailProductFragment : Fragment() {
         technical_specifications.setOnClickListener {
             it.findNavController().navigate(
                 DetailProductFragmentDirections.actionDetailProductFragmentToPropertyFragment(
-                    args?.amazing!!
+                    args?.product!!
                 )
             )
         }

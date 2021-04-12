@@ -2,8 +2,8 @@ package com.example.ecommerce.viewmodel
 
 
 import androidx.lifecycle.MutableLiveData
-import com.example.ecommerce.model.Amazing
 import com.example.ecommerce.model.Category
+import com.example.ecommerce.model.Product
 import com.example.ecommerce.model.Slider
 import com.example.ecommerce.repository.AmazingRepository
 import com.example.ecommerce.repository.CategoryRepository
@@ -21,7 +21,7 @@ class HomeViewModel(
     BaseViewModel() {
     val sliderLiveData = MutableLiveData<List<Slider>?>()
     val categoryLiveDate = MutableLiveData<List<Category>?>()
-    val amazingLiveDate = MutableLiveData<List<Amazing>?>()
+    val amazingLiveDate = MutableLiveData<List<Product>?>()
 
     init {
         progressbarLiveData.value = true
@@ -45,8 +45,8 @@ class HomeViewModel(
             .doFinally {
                 progressbarLiveData.value = false
             }
-            .subscribe(object : Observer<List<Amazing>>(compositeDisposable) {
-                override fun onSuccess(t: List<Amazing>?) {
+            .subscribe(object : Observer<List<Product>>(compositeDisposable) {
+                override fun onSuccess(t: List<Product>?) {
                     amazingLiveDate.value = t
                 }
 

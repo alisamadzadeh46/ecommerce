@@ -41,7 +41,7 @@ class ChartFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         args = arguments?.let { ChartFragmentArgs.fromBundle(it) }
-        id = args?.amazing?.id
+        id = args?.product?.id
 
         "Price Chart".also { text_toolbar.text = it }
         image_back.setOnClickListener {

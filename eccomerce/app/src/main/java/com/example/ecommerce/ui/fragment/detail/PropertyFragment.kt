@@ -33,7 +33,7 @@ class PropertyFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         args = arguments?.let { PropertyFragmentArgs.fromBundle(it) }
-        id = args?.amazing?.id
+        id = args?.product?.id
         "Technical Specifications".also { text_toolbar.text = it }
         image_back.setOnClickListener {
             it.findNavController().popBackStack()
