@@ -68,7 +68,7 @@ dependencies {
     implementation "io.reactivex.rxjava3:rxjava:$rxjava"
     def rxandroid = "3.0.0"
     implementation "io.reactivex.rxjava3:rxandroid:$rxandroid"
-    def navigation_fragment = "2.3.4"
+    def navigation_fragment = "2.3.5"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_fragment"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation_fragment"
     def adapter_rxjava3 = "2.9.0"

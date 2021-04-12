@@ -30,12 +30,15 @@ interface ApiService {
     @GET("home/price/")
     fun priceProduct(@Query("id") id: Int): Single<List<Price>>
 
+    @GET("home/comparison/{id}/")
+    fun comparisonProduct(@Path("id") id: Int): Single<ProductDetail>
+
 }
 
 
 fun client(): ApiService {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.33:8000/")
+        .baseUrl("http://192.168.1.36:8000/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()

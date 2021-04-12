@@ -1,4 +1,4 @@
-package com.example.ecommerce.utils
+package com.example.ecommerce.di
 
 import android.app.Application
 import com.example.ecommerce.model.Amazing
@@ -14,10 +14,7 @@ import com.example.ecommerce.ui.adapter.AmazingAdapter
 import com.example.ecommerce.ui.adapter.CategoryAdapter
 import com.example.ecommerce.ui.adapter.PropertyProductAdapter
 import com.example.ecommerce.ui.fragment.home.ImageLoading
-import com.example.ecommerce.viewmodel.DetailProductViewModel
-import com.example.ecommerce.viewmodel.HomeViewModel
-import com.example.ecommerce.viewmodel.PriceProductViewModel
-import com.example.ecommerce.viewmodel.PropertyProductViewModel
+import com.example.ecommerce.viewmodel.*
 import com.facebook.drawee.backends.pipeline.Fresco
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -73,6 +70,11 @@ class App : Application() {
                     RemotePriceProductDataSource(get())
                 )
             }
+            factory<ComparisonListRepository> {
+                ComparisonListImpl(
+                    RemoteComparisonListDataSource(get())
+                )
+            }
             viewModel {
                 HomeViewModel(get(), get(), get())
             }
@@ -84,6 +86,10 @@ class App : Application() {
             }
             viewModel { (id: Int) ->
                 PriceProductViewModel(get(), id)
+            }
+
+            viewModel { (id: Int) ->
+                ComparisonListViewModel(get(), id)
             }
 
 

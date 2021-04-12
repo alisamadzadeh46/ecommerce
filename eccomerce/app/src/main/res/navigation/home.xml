@@ -49,12 +49,24 @@
         <action
             android:id="@+id/action_bottomSheetDialogFragment2_to_chartFragment"
             app:destination="@id/chartFragment" />
+        <action
+            android:id="@+id/action_bottomSheetDialogFragment2_to_comparisonListFragment"
+            app:destination="@id/comparisonListFragment" />
     </dialog>
     <fragment
         android:id="@+id/chartFragment"
         android:name="com.example.ecommerce.ui.fragment.chart.ChartFragment"
         android:label="fragment_chart"
         tools:layout="@layout/fragment_chart" >
+        <argument
+            android:name="amazing"
+            app:argType="com.example.ecommerce.model.Amazing" />
+    </fragment>
+    <fragment
+        android:id="@+id/comparisonListFragment"
+        android:name="com.example.ecommerce.ui.fragment.comparison.ComparisonListFragment"
+        android:label="fragment_comparison_list"
+        tools:layout="@layout/fragment_comparison_list" >
         <argument
             android:name="amazing"
             app:argType="com.example.ecommerce.model.Amazing" />

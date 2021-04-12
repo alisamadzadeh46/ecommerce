@@ -48,6 +48,13 @@ class BottomSheetDialogFragment : BottomSheetDialogFragment() {
                 )
             )
         }
+        text_comparison.setOnClickListener {
+            findNavController().navigate(
+                BottomSheetDialogFragmentDirections.actionBottomSheetDialogFragment2ToComparisonListFragment(
+                    args?.amazing!!
+                )
+            )
+        }
 
     }
 
