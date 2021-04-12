@@ -15,3 +15,18 @@ free ecommerce application with kotlin and backend with django
 
 
 7. Run the django development server using (for ip address) `python manage.py runserver your ip address:8000`
+
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot%202021-04-03%20223147.png)
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot%202021-04-03%20223729.png)
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot%202021-04-03%20223754.png)
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot_2021-04-03%20Change%20Category%20Django%20site%20admin.png)
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot_2021-04-03%20Change%20product%20Django%20site%20admin.png)
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot_2021-04-03%20Ecommerce%20API.png)
+
+![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot_2021-04-03%20Select%20Category%20to%20change%20Django%20site%20admin.png)
