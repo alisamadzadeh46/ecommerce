@@ -9,10 +9,7 @@ import com.example.ecommerce.network.client
 import com.example.ecommerce.repository.*
 import com.example.ecommerce.repository.datasource.*
 import com.example.ecommerce.repository.impl.*
-import com.example.ecommerce.ui.adapter.AdapterRatingProduct
-import com.example.ecommerce.ui.adapter.AmazingAdapter
-import com.example.ecommerce.ui.adapter.CategoryAdapter
-import com.example.ecommerce.ui.adapter.PropertyProductAdapter
+import com.example.ecommerce.ui.adapter.*
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.viewmodel.*
 import com.facebook.drawee.backends.pipeline.Fresco
@@ -75,6 +72,7 @@ class App : Application() {
                     RemoteComparisonListDataSource(get())
                 )
             }
+            factory { ComparisonProductListAdapter(get()) }
             viewModel {
                 HomeViewModel(get(), get(), get())
             }

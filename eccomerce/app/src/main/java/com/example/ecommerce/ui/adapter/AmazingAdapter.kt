@@ -19,7 +19,12 @@ class AmazingAdapter(private val amazing: List<Amazing>, private val imageLoadin
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AmazingViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.amazing_item, parent, false)
+            LayoutInflater.from(parent.context)
+                .inflate(
+                    R.layout.amazing_item,
+                    parent,
+                    false
+                )
         return AmazingViewHolder(view)
     }
 
