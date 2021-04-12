@@ -57,3 +57,12 @@ class PriceProduct(ListAPIView):
         if id is not None:
             queryset = queryset.filter(product=id)
         return queryset
+
+
+class ComparisonProduct(ListAPIView):
+    serializer_class = ComparisonSerializer
+
+    def get_queryset(self):
+        id = self.kwargs['pk']
+        queryset = Product.objects.filter(category=id)
+        return queryset

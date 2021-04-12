@@ -11,4 +11,5 @@ urlpatterns = [
     path('property/<int:pk>/', PropertyProduct.as_view(), name='property'),
     path('rating/<int:pk>/', RatingProduct.as_view(), name='rating'),
     path('price/', PriceProduct.as_view(), name='price'),
+    path('comparison/<int:pk>/', ComparisonProduct.as_view(), name='comparison'),
 ]
