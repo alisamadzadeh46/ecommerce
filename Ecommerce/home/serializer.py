@@ -50,7 +50,4 @@ class PriceSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-class ComparisonSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Product
-        fields = "__all__"
+

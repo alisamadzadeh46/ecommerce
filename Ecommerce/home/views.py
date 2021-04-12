@@ -60,7 +60,7 @@ class PriceProduct(ListAPIView):
 
 
 class ComparisonProduct(ListAPIView):
-    serializer_class = ComparisonSerializer
+    serializer_class = ProductSerializer
 
     def get_queryset(self):
         id = self.kwargs['pk']
