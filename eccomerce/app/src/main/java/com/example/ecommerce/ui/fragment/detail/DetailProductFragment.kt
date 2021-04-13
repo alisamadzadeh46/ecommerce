@@ -29,7 +29,7 @@ class DetailProductFragment : Fragment() {
     private val detailProductViewModel: DetailProductViewModel by viewModel { parametersOf(id) }
     var args: DetailProductFragmentArgs? = null
     var id: Int? = null
-    val amazing: String? = null
+    val product: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

@@ -70,5 +70,17 @@
         <argument
             android:name="product"
             app:argType="com.example.ecommerce.model.Product" />
+        <action
+            android:id="@+id/action_comparisonListFragment_to_comparisonFragment"
+            app:destination="@id/comparisonFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comparisonFragment"
+        android:name="com.example.ecommerce.ui.fragment.comparison.ComparisonFragment"
+        android:label="fragment_comparison"
+        tools:layout="@layout/fragment_comparison" >
+        <argument
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
     </fragment>
 </navigation>
