@@ -73,6 +73,7 @@ class App : Application() {
                 )
             }
             factory { ComparisonProductListAdapter(get()) }
+            factory { (property: List<Property>) -> ComparisonAdapter(property) }
             viewModel {
                 HomeViewModel(get(), get(), get())
             }
