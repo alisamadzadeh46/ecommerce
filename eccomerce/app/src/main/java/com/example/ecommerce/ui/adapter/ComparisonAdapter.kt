@@ -56,7 +56,7 @@ class ComparisonAdapter(val property: List<Property>) :
         fun bind(property: Property) {
             itemView.apply {
                 text_one.text = property.title
-                text_two.text = property.title
+                text_two.text = property.value
 
             }
         }
