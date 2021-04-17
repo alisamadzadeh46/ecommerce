@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
             R.navigation.cart,
             R.navigation.category,
             R.navigation.home,
-            R.navigation.profile
+            R.navigation.account
         )
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,

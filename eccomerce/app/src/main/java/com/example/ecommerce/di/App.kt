@@ -1,6 +1,7 @@
 package com.example.ecommerce.di
 
 import android.app.Application
+import android.content.SharedPreferences
 import com.example.ecommerce.model.Category
 import com.example.ecommerce.model.Product
 import com.example.ecommerce.model.Property
@@ -74,6 +75,7 @@ class App : Application() {
             }
             factory { ComparisonProductListAdapter(get()) }
             factory { (property: List<Property>) -> ComparisonAdapter(property) }
+            single<SharedPreferences> { this@App.getSharedPreferences("user_token", MODE_PRIVATE) }
             viewModel {
                 HomeViewModel(get(), get(), get())
             }
@@ -89,6 +91,10 @@ class App : Application() {
 
             viewModel { (id: Int) ->
                 ComparisonListViewModel(get(), id)
+            }
+
+            viewModel {
+                LoginViewModel(RemoteLoginDataSource(get()), LocalLoginDataSource(get()))
             }
 
 

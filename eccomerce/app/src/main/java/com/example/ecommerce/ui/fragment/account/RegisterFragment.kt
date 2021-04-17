@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui.fragment.login
+package com.example.ecommerce.ui.fragment.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,14 +8,13 @@ import com.example.ecommerce.R
 import com.example.ecommerce.utils.Fragment
 
 
-class LoginFragment : Fragment() {
+class RegisterFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        return inflater.inflate(R.layout.fragment_register, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
