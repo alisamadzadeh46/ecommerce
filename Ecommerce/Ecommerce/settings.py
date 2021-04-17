@@ -46,12 +46,15 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'drf_multiple_model',
     'allauth',
+    'allauth.socialaccount',
     'dj_rest_auth',
+    'allauth.account',
     'dj_rest_auth.registration',
 
     # My app
     'home.apps.HomeConfig',
     'account.apps.AccountConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -158,4 +161,3 @@ REST_USE_JWT = True
 
 JWT_AUTH_COOKIE = 'Ecommerce'
 JWT_AUTH_REFRESH_COOKIE = 'refresh'
-
