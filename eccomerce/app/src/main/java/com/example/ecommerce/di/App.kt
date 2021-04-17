@@ -81,6 +81,12 @@ class App : Application() {
                     LocalLoginDataSource(get())
                 )
             }
+            factory<RegisterRepository> {
+                RegisterRepositorylmpl(
+                    RemoteRegisterDataSource(get()),
+                    LocalRegisterDataSource(get())
+                )
+            }
             single<SharedPreferences> { this@App.getSharedPreferences("user_token", MODE_PRIVATE) }
             viewModel {
                 HomeViewModel(get(), get(), get())
@@ -101,6 +107,9 @@ class App : Application() {
 
             viewModel {
                 LoginViewModel(get())
+            }
+            viewModel {
+                RegisterViewModel(get())
             }
 
 

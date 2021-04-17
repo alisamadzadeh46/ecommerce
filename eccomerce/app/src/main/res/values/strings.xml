@@ -18,4 +18,5 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
+    <string name="register_to_ecommerce">register to ecommerce</string>
 </resources>

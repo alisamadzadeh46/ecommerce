@@ -35,7 +35,7 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.registerFragment)
         }
         loginViewModel.loginLiveData.observe(viewLifecycleOwner) {
-            Log.i("LOG", "${it.access_token}")
+
         }
         loginViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
             progress(it)
