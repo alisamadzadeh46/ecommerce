@@ -19,6 +19,8 @@ class RegisterFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        /* get text and change to string username */
+        /* get text and change to string password and no need set repetition password or password2 in android. handle using server  */
     }
 
 
