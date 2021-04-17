@@ -13,4 +13,8 @@
     <string name="price_chart">Price chart</string>
     <string name="product_comparison">Product comparison</string>
     <string name="share">Share</string>
+    <string name="by_entering_ecommerce_you_accept_our_terms">By entering ecommerce, you accept our terms</string>
+    <string name="enter_to_ecommerce">Enter to ecommerce</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
 </resources>

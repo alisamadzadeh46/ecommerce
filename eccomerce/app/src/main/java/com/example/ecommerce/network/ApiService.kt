@@ -38,7 +38,7 @@ interface ApiService {
 
 fun client(): ApiService {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.1.34:8000/")
+        .baseUrl("http://192.168.8.148:8000/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()
