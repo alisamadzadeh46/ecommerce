@@ -35,7 +35,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'home.apps.HomeConfig',
+    'django.contrib.sites',
+
+    # 3rd party apps
     'rest_framework',
     'drf_yasg',
     'mptt',
@@ -43,6 +45,13 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'drf_multiple_model',
+    'allauth',
+    'dj_rest_auth',
+    'dj_rest_auth.registration',
+
+    # My app
+    'home.apps.HomeConfig',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -138,3 +147,15 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     },
 }
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
+    ],
+}
+
+REST_USE_JWT = True
+
+JWT_AUTH_COOKIE = 'Ecommerce'
+JWT_AUTH_REFRESH_COOKIE = 'refresh'
+
