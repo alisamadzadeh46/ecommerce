@@ -33,9 +33,17 @@ interface ApiService {
     @GET("home/comparison/{id}/")
     fun comparisonProduct(@Path("id") id: Int): Single<List<Product>>
 
-
-    @POST("account/dj-rest-auth/registration/")
+    @FormUrlEncoded
+    @POST("account/dj-rest-auth/login/")
     fun login(
+        @Field("username") username: String,
+        @Field("password") password: String
+    ): Single<Login>
+
+
+    @FormUrlEncoded
+    @POST("account/dj-rest-auth/registration/")
+    fun register(
         @Field("username") username: String,
         @Field("password1") password1: String,
         @Field("password2") password2: String

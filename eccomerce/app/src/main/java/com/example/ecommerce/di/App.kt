@@ -75,6 +75,12 @@ class App : Application() {
             }
             factory { ComparisonProductListAdapter(get()) }
             factory { (property: List<Property>) -> ComparisonAdapter(property) }
+            factory<LoginRepository> {
+                LoginRepositorylmpl(
+                    RemoteLoginDataSource(get()),
+                    LocalLoginDataSource(get())
+                )
+            }
             single<SharedPreferences> { this@App.getSharedPreferences("user_token", MODE_PRIVATE) }
             viewModel {
                 HomeViewModel(get(), get(), get())
@@ -94,7 +100,7 @@ class App : Application() {
             }
 
             viewModel {
-                LoginViewModel(RemoteLoginDataSource(get()), LocalLoginDataSource(get()))
+                LoginViewModel(get())
             }
 
 

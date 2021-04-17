@@ -6,7 +6,7 @@ import com.example.ecommerce.utils.TokenHolder
 import io.reactivex.rxjava3.core.Single
 
 class LocalLoginDataSource(private val sharedPreferences: SharedPreferences) : LoginDataSource {
-    override fun login(username: String, password1: String, password2: String): Single<Login> {
+    override fun login(username: String, password: String): Single<Login> {
         TODO("Not yet implemented")
     }
 
