@@ -16,6 +16,8 @@ free ecommerce application with kotlin and backend with django
 
 7. Run the django development server using (for ip address) `python manage.py runserver your ip address:8000`
 
+8. enter your data in administration
+
 
 ![alt text](https://alisamadzadeh.ir/ecommerce/Screenshot%202021-04-03%20223147.png)
 
