@@ -9,21 +9,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-<!--        <ImageView-->
-<!--            android:id="@+id/image"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="parent"-->
-<!--            app:srcCompat="@drawable/ic_round_login_24"-->
-<!--            android:contentDescription="@string/app_name" />-->
-<!--        <ImageView-->
-<!--            android:id="@+id/image_close"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:padding="8dp"-->
+
 
         <TextView
             android:gravity="center"
@@ -48,40 +34,55 @@
             android:text="@string/enter_to_ecommerce"
             app:layout_constraintBottom_toTopOf="@id/text"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
+
         <EditText
             android:id="@+id/text_input"
-            android:autofillHints="@string/app_name"
-            android:padding="8dp"
-            android:hint="@string/email"
-            android:background="@drawable/shape_search"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="188dp"
+            android:autofillHints="@string/app_name"
+            android:background="@drawable/shape_search"
             android:ems="10"
+            android:hint="@string/email"
             android:inputType="textPersonName"
+            android:padding="8dp"
             app:layout_constraintBottom_toTopOf="@+id/login_button"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="LabelFor" />
+
         <EditText
             android:id="@+id/password"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:ems="10"
-            android:padding="8dp"
-            android:hint="@string/password"
-            android:inputType="textPassword"
             android:background="@drawable/shape_search"
-            app:layout_constraintBottom_toTopOf="@id/text_input"
+            android:ems="10"
+            android:hint="@string/password"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:padding="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:ignore="Autofill" />
+            app:layout_constraintTop_toBottomOf="@id/text_input" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="120dp"
+            android:src="@drawable/ic_round_login_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/app_name" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
