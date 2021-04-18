@@ -16,4 +16,8 @@
         android:name="com.example.ecommerce.ui.fragment.account.RegisterFragment"
         android:label="fragment_register"
         tools:layout="@layout/fragment_register" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.ecommerce.ui.fragment.account.ProfileFragment"
+        android:label="ProfileFragment" />
 </navigation>

@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
 import com.example.ecommerce.ui.adapter.AdapterRatingProduct
@@ -16,6 +17,7 @@ import com.example.ecommerce.ui.adapter.SliderAdapterDetailProduct
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.ChangeNumber
 import com.example.ecommerce.utils.Fragment
+import com.example.ecommerce.utils.TokenHolder
 import com.example.ecommerce.viewmodel.DetailProductViewModel
 
 import kotlinx.android.synthetic.main.fragment_detail_product.*
@@ -53,6 +55,14 @@ class DetailProductFragment : Fragment() {
             )
 
         }
+        favorite_image.setOnClickListener {
+            if (TokenHolder.access_token == null) {
+                it.findNavController().navigate(R.id.action_detailProductFragment_to_loginFragment2)
+            }
+            else {
+
+            }
+        }
 
         detailProductViewModel.detailProductLiveData.observe(viewLifecycleOwner) {
             ("name : " + it.Product[0].title).also { name -> title.text = name }
@@ -67,7 +77,7 @@ class DetailProductFragment : Fragment() {
             ("description : " + it.Product[0].description).also { int -> introduction.text = int }
             ("available colors : " + it.Product[0].color).also { color -> color_text.text = color }
             ("detail : " + it.Product[0].detail).also { de -> detail.text = de }
-            val sliderAdapter = SliderAdapterDetailProduct(this,it.Images)
+            val sliderAdapter = SliderAdapterDetailProduct(this, it.Images)
             image.adapter = sliderAdapter
             dots_indicator_detail.setViewPager2(image)
         }

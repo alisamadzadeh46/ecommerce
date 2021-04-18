@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_detailProductFragment_to_bottomSheetDialogFragment2"
             app:destination="@id/bottomSheetDialogFragment2" />
+        <action
+            android:id="@+id/action_detailProductFragment_to_loginFragment2"
+            app:destination="@id/loginFragment2" />
     </fragment>
     <fragment
         android:id="@+id/propertyFragment"
@@ -83,4 +86,9 @@
             android:name="product"
             app:argType="com.example.ecommerce.model.Product" />
     </fragment>
+    <fragment
+        android:id="@+id/loginFragment2"
+        android:name="com.example.ecommerce.ui.fragment.account.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

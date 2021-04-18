@@ -1,16 +1,22 @@
 package com.example.ecommerce.ui.fragment.account
 
+import android.app.Activity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.fragment.findNavController
 import com.example.ecommerce.R
 import com.example.ecommerce.utils.Fragment
+import com.example.ecommerce.utils.TokenHolder
 import com.example.ecommerce.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
+import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import www.sanju.motiontoast.MotionToast
 
 
 class LoginFragment : Fragment() {
@@ -24,6 +30,9 @@ class LoginFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (TokenHolder.access_token!=null){
+            findNavController().navigate(R.id.profileFragment)
+        }
 
         login_button.setOnClickListener {
             val username = username.text.toString()
@@ -35,6 +44,16 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.registerFragment)
         }
         loginViewModel.loginLiveData.observe(viewLifecycleOwner) {
+            MotionToast.createToast(
+                requireContext() as Activity,
+                "Hurray success 😍",
+                "You have successfully logged in!",
+                MotionToast.TOAST_SUCCESS,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular)
+            )
+            findNavController().navigate(R.id.profileFragment)
 
         }
         loginViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
