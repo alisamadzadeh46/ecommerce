@@ -53,7 +53,8 @@ class LoginFragment : Fragment() {
                 MotionToast.LONG_DURATION,
                 ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular)
             )
-            findNavController().navigate(R.id.profileFragment)
+            findNavController().popBackStack()
+            requireActivity().finish()
 
         }
         loginViewModel.loginErrorLiveData.observe(viewLifecycleOwner){

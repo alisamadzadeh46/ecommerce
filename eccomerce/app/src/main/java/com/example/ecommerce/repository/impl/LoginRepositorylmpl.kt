@@ -17,5 +17,9 @@ class LoginRepositorylmpl(
         }
     }
 
+    override fun checkLogin(): Boolean {
+        return localLoginDataSource.checkLogin()
+    }
+
 
 }

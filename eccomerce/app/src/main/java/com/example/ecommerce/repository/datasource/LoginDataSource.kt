@@ -7,4 +7,5 @@ interface LoginDataSource {
     fun login(username: String, password: String): Single<Login>
     fun accessToken(access_token: String, refresh_token:String)
     fun loadToken(token: String)
+    fun checkLogin():Boolean
 }

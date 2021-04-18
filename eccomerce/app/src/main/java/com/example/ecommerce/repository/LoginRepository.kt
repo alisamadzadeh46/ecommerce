@@ -5,4 +5,5 @@ import io.reactivex.rxjava3.core.Single
 
 interface LoginRepository {
     fun login(username: String, password: String): Single<Login>
+    fun checkLogin():Boolean
 }

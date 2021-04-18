@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
         val navGraphIds = listOf(
+            R.navigation.account,
             R.navigation.cart,
             R.navigation.category,
-            R.navigation.home,
-            R.navigation.account
+            R.navigation.home
         )
         val controller = bottomNavigationView.setupWithNavController(
             navGraphIds = navGraphIds,

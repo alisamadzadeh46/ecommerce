@@ -16,5 +16,9 @@ class RemoteLoginDataSource(private val apiService: ApiService) : LoginDataSourc
         TODO("Not yet implemented")
     }
 
+    override fun checkLogin(): Boolean {
+        TODO("Not yet implemented")
+    }
+
 
 }

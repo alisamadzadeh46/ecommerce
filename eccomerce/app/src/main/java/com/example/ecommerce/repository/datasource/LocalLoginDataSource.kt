@@ -24,5 +24,9 @@ class LocalLoginDataSource(private val sharedPreferences: SharedPreferences) : L
         )
     }
 
+    override fun checkLogin(): Boolean {
+        return sharedPreferences.getString("access_token", "") != ""
+    }
+
 
 }

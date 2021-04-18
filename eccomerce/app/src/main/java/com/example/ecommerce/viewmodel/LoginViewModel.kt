@@ -12,6 +12,7 @@ class LoginViewModel(
 ) : BaseViewModel() {
     val loginLiveData = MutableLiveData<Login>()
     val loginErrorLiveData = MutableLiveData<String?>()
+    val checkLoginStatus = MutableLiveData<Boolean>()
     fun login(
         username: String,
         password: String
@@ -32,6 +33,10 @@ class LoginViewModel(
                     loginErrorLiveData.value = e?.toString()
                 }
             })
+    }
+
+    fun checkLogin() {
+        checkLoginStatus.value = loginRepository.checkLogin()
     }
 
 
