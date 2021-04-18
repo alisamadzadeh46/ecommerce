@@ -11,6 +11,7 @@ class LoginViewModel(
     private val loginRepository: LoginRepository,
 ) : BaseViewModel() {
     val loginLiveData = MutableLiveData<Login>()
+    val loginErrorLiveData = MutableLiveData<String?>()
     fun login(
         username: String,
         password: String
@@ -26,6 +27,10 @@ class LoginViewModel(
                     loginLiveData.value = t
                 }
 
+                override fun onError(e: Throwable?) {
+                    super.onError(e)
+                    loginErrorLiveData.value = e?.toString()
+                }
             })
     }
 

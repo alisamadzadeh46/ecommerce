@@ -56,6 +56,17 @@ class LoginFragment : Fragment() {
             findNavController().navigate(R.id.profileFragment)
 
         }
+        loginViewModel.loginErrorLiveData.observe(viewLifecycleOwner){
+            MotionToast.darkColorToast(
+                requireContext() as Activity,
+                "Failed ☹ ",
+                it.toString(),
+                MotionToast.TOAST_ERROR,
+                MotionToast.GRAVITY_BOTTOM,
+                MotionToast.LONG_DURATION,
+                ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular)
+            )
+        }
         loginViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
             progress(it)
         }
