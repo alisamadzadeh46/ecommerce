@@ -1,16 +1,20 @@
-from rest_framework.generics import ListAPIView
+from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from .serializer import *
 
 
-class AddFavorite(ListAPIView):
-    data = serializer_class = FavoriteSerializer
+class AddFavorite(APIView):
     permission_classes = [IsAuthenticated]
 
-    def get_queryset(self):
-        queryset = Favorite.objects.all()
-        id = self.request.query_params.get('id')
-        if id is not None:
-            queryset = queryset.filter(product=id)
-        return queryset
+    def post(self, request, pk):
+        user = request.user
+        queryset = Favorite.objects.create(product_id=pk, is_favorite=True, user_id=user.id)
+        self.check_object_permissions(request, queryset)
+        data = FavoriteSerializer(instance=queryset, data=request.data, partial=True)
+        if data.is_valid():
+            data.save()
+            return Response(data.data, status=status.HTTP_201_CREATED)
+        return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
