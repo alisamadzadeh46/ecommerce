@@ -10,13 +10,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
 import com.example.ecommerce.ui.adapter.AdapterRatingProduct
-import com.example.ecommerce.ui.adapter.SliderAdapter
 import com.example.ecommerce.ui.adapter.SliderAdapterDetailProduct
-import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.ChangeNumber
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.utils.TokenHolder
@@ -25,7 +22,6 @@ import com.example.ecommerce.viewmodel.DetailProductViewModel
 import com.example.ecommerce.viewmodel.LoginViewModel
 
 import kotlinx.android.synthetic.main.fragment_detail_product.*
-import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
@@ -87,6 +83,7 @@ class DetailProductFragment : Fragment() {
                     MotionToast.LONG_DURATION,
                     ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular)
                 )
+                favorite_image.setImageResource(R.drawable.ic_round_favorite_24)
             }
         }
 

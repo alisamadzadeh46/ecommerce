@@ -51,6 +51,7 @@ class App : Application() {
                     )
                 )
             }
+            factory<AddFavoriteRepository> { AddFavoriteImpl(RemoteAddFavoriteDataSource(get())) }
             factory<PropertyProductRepository> {
                 PropertyProductImpl(
                     RemotePropertyProductDataSource(
@@ -110,6 +111,9 @@ class App : Application() {
             }
             viewModel {
                 RegisterViewModel(get())
+            }
+            viewModel {
+             AddFavoriteViewModel(get())
             }
 
 
