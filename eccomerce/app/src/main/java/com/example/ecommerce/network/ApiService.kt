@@ -33,6 +33,7 @@ interface ApiService {
     @GET("home/comparison/{id}/")
     fun comparisonProduct(@Path("id") id: Int): Single<List<Product>>
 
+
     @FormUrlEncoded
     @POST("account/dj-rest-auth/login/")
     fun login(
@@ -49,7 +50,12 @@ interface ApiService {
         @Field("password2") password2: String
     ): Single<Login>
 
-
+    @FormUrlEncoded
+    @POST("account/addfavorite/{id}/")
+    fun addFavorite(
+        @Path("id") id: Int,
+        @Header("Authorization") access_token: String
+    ): Single<AddFavorite>
 }
 
 

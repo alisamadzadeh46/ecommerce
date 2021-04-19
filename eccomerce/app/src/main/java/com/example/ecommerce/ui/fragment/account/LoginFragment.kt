@@ -1,9 +1,7 @@
 package com.example.ecommerce.ui.fragment.account
 
 import android.app.Activity
-import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,7 +12,6 @@ import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.utils.TokenHolder
 import com.example.ecommerce.viewmodel.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_login.*
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import www.sanju.motiontoast.MotionToast
 
