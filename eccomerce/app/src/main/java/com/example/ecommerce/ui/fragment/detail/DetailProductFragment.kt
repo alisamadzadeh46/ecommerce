@@ -1,12 +1,14 @@
 package com.example.ecommerce.ui.fragment.detail
 
 
+import android.app.Activity
 import android.graphics.Paint
 import android.os.Bundle
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.res.ResourcesCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +20,7 @@ import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.utils.ChangeNumber
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.utils.TokenHolder
+import com.example.ecommerce.viewmodel.AddFavoriteViewModel
 import com.example.ecommerce.viewmodel.DetailProductViewModel
 import com.example.ecommerce.viewmodel.LoginViewModel
 
@@ -26,11 +29,13 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
+import www.sanju.motiontoast.MotionToast
 
 
 class DetailProductFragment : Fragment() {
     private val detailProductViewModel: DetailProductViewModel by viewModel { parametersOf(id) }
     private val loginViewModel: LoginViewModel by viewModel()
+    private val addFavoriteViewModel: AddFavoriteViewModel by viewModel()
     var args: DetailProductFragmentArgs? = null
     var id: Int? = null
     val product: String? = null
@@ -60,8 +65,31 @@ class DetailProductFragment : Fragment() {
         favorite_image.setOnClickListener {
             if (loginViewModel.checkLoginStatus.value == false) {
                 it.findNavController().navigate(R.id.action_detailProductFragment_to_loginFragment2)
+            } else {
+                id?.let { it1 ->
+                    TokenHolder.access_token?.let { it2 ->
+                        addFavoriteViewModel.addFavorite(
+                            it1,
+                            it2
+                        )
+                    }
+                }
             }
         }
+        addFavoriteViewModel.addFavoriteLiveData.observe(viewLifecycleOwner) {
+            if (it.is_favorite) {
+                MotionToast.createToast(
+                    requireContext() as Activity,
+                    "Hurray success 😍",
+                    "Add to favorite!",
+                    MotionToast.TOAST_SUCCESS,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular)
+                )
+            }
+        }
+
         detailProductViewModel.detailProductLiveData.observe(viewLifecycleOwner) {
             ("name : " + it.Product[0].title).also { name -> title.text = name }
             rating.rating = it.Product[0].score
