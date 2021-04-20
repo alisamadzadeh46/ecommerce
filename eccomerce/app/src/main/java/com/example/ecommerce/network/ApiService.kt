@@ -50,7 +50,7 @@ interface ApiService {
         @Field("password2") password2: String
     ): Single<Login>
 
-    @FormUrlEncoded
+
     @POST("account/addfavorite/{id}/")
     fun addFavorite(
         @Path("id") id: Int,

@@ -62,14 +62,10 @@ class DetailProductFragment : Fragment() {
             if (loginViewModel.checkLoginStatus.value == false) {
                 it.findNavController().navigate(R.id.action_detailProductFragment_to_loginFragment2)
             } else {
-                id?.let { it1 ->
-                    TokenHolder.access_token?.let { it2 ->
-                        addFavoriteViewModel.addFavorite(
-                            it1,
-                            it2
-                        )
-                    }
-                }
+                id?.let { it1 -> addFavoriteViewModel.addFavorite(
+                    it1,
+                    "Bearer ${TokenHolder.access_token}"
+                ) }
             }
         }
         addFavoriteViewModel.addFavoriteLiveData.observe(viewLifecycleOwner) {
