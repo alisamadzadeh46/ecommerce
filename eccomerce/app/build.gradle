@@ -58,7 +58,7 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofit"
 
     //fresco
-    def fresco = "2.4.0"
+    def fresco = "2.3.0"
     implementation "com.facebook.fresco:fresco:$fresco"
 
     //lifecycle
@@ -89,7 +89,7 @@ dependencies {
 
     // indicator
     def indicator = "4.2"
-    implementation "com.tbuonomo.andrui:viewpagerdotsindicator:$indicator"
+    implementation "com.tbuonomo:dotsindicator:$indicator"
 
     // round
     def round = "2.1.2"
