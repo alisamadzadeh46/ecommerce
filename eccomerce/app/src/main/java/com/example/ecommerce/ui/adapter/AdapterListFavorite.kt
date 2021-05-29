@@ -4,9 +4,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerce.R
 import com.example.ecommerce.model.FavoriteList
+import com.example.ecommerce.ui.fragment.account.FavoriteFragmentDirections
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import kotlinx.android.synthetic.main.item_favorite.view.*
 
@@ -44,13 +46,15 @@ class AdapterListFavorite(
         fun bind(favoriteList: FavoriteList, imageLoading: ImageLoading) {
             itemView.apply {
                 imageLoading.load(imageView, "http://127.0.0.1:8000${favoriteList.product.image}")
-                Log.i("TAG","http://127.0.0.1:8000${favoriteList.product.image}")
+                Log.i("TAG", "http://127.0.0.1:8000${favoriteList.product.image}")
                 text_title.text = favoriteList.product.title
-//                findNavController().navigate(
-//                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailProductFragment2(
-//                        favoriteList.product
-//                    )
-//                )
+                setOnClickListener {
+                    findNavController().navigate(
+                        FavoriteFragmentDirections.actionFavoriteFragmentToDetailProductFragment2(
+                            favoriteList.product
+                        )
+                    )
+                }
             }
         }
     }
