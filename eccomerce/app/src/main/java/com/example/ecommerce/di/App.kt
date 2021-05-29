@@ -113,7 +113,7 @@ class App : Application() {
                 RegisterViewModel(get())
             }
             viewModel {
-             AddFavoriteViewModel(get())
+                AddFavoriteViewModel(get())
             }
 
 

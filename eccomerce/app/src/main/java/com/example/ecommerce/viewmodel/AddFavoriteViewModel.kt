@@ -8,7 +8,7 @@ import com.example.ecommerce.utils.Observer
 import com.example.ecommerce.utils.singleHelper
 
 class AddFavoriteViewModel(
-    private val addFavoriteRepository: AddFavoriteRepository
+    private val addFavoriteRepository: AddFavoriteRepository,
 ) : BaseViewModel() {
     val addFavoriteLiveData = MutableLiveData<AddFavorite>()
 

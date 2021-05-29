@@ -70,7 +70,6 @@ class DetailProductFragment : Fragment() {
                 }
             }
         }
-
         addFavoriteViewModel.addFavoriteLiveData.observe(viewLifecycleOwner) {
             if (it.is_favorite) {
                 MotionToast.createToast(
