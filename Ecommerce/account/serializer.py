@@ -3,7 +3,15 @@ from .models import *
 from rest_framework_simplejwt.tokens import RefreshToken
 
 
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = "__all__"
+
+
 class FavoriteSerializer(serializers.ModelSerializer):
+    product = ProductSerializer()
+
     class Meta:
         model = Favorite
         fields = "__all__"
