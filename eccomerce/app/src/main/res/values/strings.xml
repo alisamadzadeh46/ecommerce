@@ -19,4 +19,9 @@
     <string name="password">Password</string>
     <string name="register">Register</string>
     <string name="register_to_ecommerce">register to ecommerce</string>
+    <string name="your_account">your account</string>
+    <string name="favorite_list">favorite list</string>
+    <string name="comment_list">comment list</string>
+    <string name="address_list">address list</string>
+    <string name="information">information</string>
 </resources>

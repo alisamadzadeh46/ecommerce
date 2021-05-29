@@ -1,7 +1,9 @@
 package com.example.ecommerce.network
 
 import com.example.ecommerce.model.*
+import com.example.ecommerce.utils.TokenHolder
 import io.reactivex.rxjava3.core.Single
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory

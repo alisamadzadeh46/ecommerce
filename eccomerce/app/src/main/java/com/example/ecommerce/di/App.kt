@@ -14,6 +14,7 @@ import com.example.ecommerce.ui.adapter.*
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import com.example.ecommerce.viewmodel.*
 import com.facebook.drawee.backends.pipeline.Fresco
+import org.koin.android.ext.android.get
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
@@ -122,5 +123,6 @@ class App : Application() {
             androidContext(this@App)
             modules(appModules)
         }
+
     }
 }
