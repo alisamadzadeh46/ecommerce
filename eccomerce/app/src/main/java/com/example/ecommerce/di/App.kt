@@ -2,10 +2,7 @@ package com.example.ecommerce.di
 
 import android.app.Application
 import android.content.SharedPreferences
-import com.example.ecommerce.model.Category
-import com.example.ecommerce.model.Product
-import com.example.ecommerce.model.Property
-import com.example.ecommerce.model.Rating
+import com.example.ecommerce.model.*
 import com.example.ecommerce.network.client
 import com.example.ecommerce.repository.*
 import com.example.ecommerce.repository.datasource.*
@@ -53,6 +50,7 @@ class App : Application() {
                 )
             }
             factory<AddFavoriteRepository> { AddFavoriteImpl(RemoteAddFavoriteDataSource(get())) }
+            factory { (favoriteList: List<FavoriteList>) -> AdapterListFavorite(favoriteList, get()) }
             factory<PropertyProductRepository> {
                 PropertyProductImpl(
                     RemotePropertyProductDataSource(
@@ -60,6 +58,7 @@ class App : Application() {
                     )
                 )
             }
+            factory<FavoriteListRepository> { FavoriteListImpl(RemoteFavoriteListDataSource(get())) }
             factory<RatingProductRepository> {
                 RatingProductRepositoryImpl(
                     RemoteRatingProductDataSource(get())
@@ -115,6 +114,10 @@ class App : Application() {
             }
             viewModel {
                 AddFavoriteViewModel(get())
+            }
+
+            viewModel {
+                FavoriteListViewModel(get())
             }
 
 

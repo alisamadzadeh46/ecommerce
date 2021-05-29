@@ -7,7 +7,7 @@ import com.example.ecommerce.utils.BaseViewModel
 import com.example.ecommerce.utils.Observer
 import com.example.ecommerce.utils.singleHelper
 
-class ListFavoriteViewModel(
+class FavoriteListViewModel(
     private val favoriteListRepository: FavoriteListRepository
 ) : BaseViewModel() {
     val favoriteListLiveData = MutableLiveData<List<FavoriteList>>()
