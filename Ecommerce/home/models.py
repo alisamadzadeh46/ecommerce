@@ -50,7 +50,7 @@ class Product(models.Model):
         ('True', 'True'),
         ('False', 'False')
     )
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name="category")
+    category = models.ForeignKey(Category,on_delete=models.CASCADE, verbose_name="category")
     title = models.CharField(max_length=255, verbose_name="title")
     keywords = models.CharField(max_length=255, verbose_name="keywords")
     description = models.CharField(max_length=255, verbose_name="description")

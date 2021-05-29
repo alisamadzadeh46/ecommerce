@@ -5,10 +5,9 @@ from home.models import Product
 
 
 class Favorite(models.Model):
-    user = models.ForeignKey(User, related_name='favorite', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    is_favorite = models.BooleanField()
+    is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user.username
-
