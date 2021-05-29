@@ -4,8 +4,6 @@ from django.utils.safestring import mark_safe
 from mptt.models import MPTTModel
 from treewidget.fields import TreeForeignKey
 
-from account.models import Favorite
-
 
 class Slider(models.Model):
     name = models.CharField(max_length=200, verbose_name="name")

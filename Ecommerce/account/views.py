@@ -21,3 +21,16 @@ class AddFavorite(APIView):
                 return Response(data.data, status=status.HTTP_201_CREATED)
 
         return Response({"available": "product is favorite"})
+
+
+class ListFavorite(APIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = FavoriteSerializer
+
+    def post(self, request):
+        user = request.user
+        check = Favorite.objects.get(is_favorite=True, user_id=user.id)
+        self.check_object_permissions(request, check)
+        data = FavoriteSerializer(instance=check, data=request.data, partial=True)
+        if data.is_valid():
+            return Response(data.data, status=status.HTTP_201_CREATED)
