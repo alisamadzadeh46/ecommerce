@@ -58,6 +58,11 @@ interface ApiService {
         @Path("id") id: Int,
         @Header("Authorization") access_token: String
     ): Single<AddFavorite>
+
+    @POST("account/listfavorite/")
+    fun listFavorite(
+        @Header("Authorization") access_token: String
+    ): Single<List<FavoriteList>>
 }
 
 
