@@ -20,4 +20,22 @@
         android:id="@+id/profileFragment"
         android:name="com.example.ecommerce.ui.fragment.account.ProfileFragment"
         android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.ecommerce.ui.fragment.account.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_detailProductFragment2"
+            app:destination="@id/detailProductFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment2"
+        android:name="com.example.ecommerce.ui.fragment.detail.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" >
+        <argument
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
+    </fragment>
 </navigation>
