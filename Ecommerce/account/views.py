@@ -11,10 +11,13 @@ class AddFavorite(APIView):
 
     def post(self, request, pk):
         user = request.user
-        queryset = Favorite.objects.create(product_id=pk, is_favorite=True, user_id=user.id)
-        self.check_object_permissions(request, queryset)
-        data = FavoriteSerializer(instance=queryset, data=request.data, partial=True)
-        if data.is_valid():
-            data.save()
-            return Response(data.data, status=status.HTTP_201_CREATED)
-        return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
+        check = Favorite.objects.filter(product_id=pk, is_favorite=True, user_id=user.id).exists()
+        if not check:
+            queryset = Favorite.objects.create(product_id=pk, is_favorite=True, user_id=user.id)
+            self.check_object_permissions(request, queryset)
+            data = FavoriteSerializer(instance=queryset, data=request.data, partial=True)
+            if data.is_valid():
+                data.save()
+                return Response(data.data, status=status.HTTP_201_CREATED)
+
+        return Response({"available": "product is favorite "}, status=status.HTTP_400_BAD_REQUEST)
