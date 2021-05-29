@@ -62,12 +62,15 @@ class DetailProductFragment : Fragment() {
             if (loginViewModel.checkLoginStatus.value == false) {
                 it.findNavController().navigate(R.id.action_detailProductFragment_to_loginFragment2)
             } else {
-                id?.let { it1 -> addFavoriteViewModel.addFavorite(
-                    it1,
-                    "Bearer ${TokenHolder.access_token}"
-                ) }
+                id?.let { it1 ->
+                    addFavoriteViewModel.addFavorite(
+                        it1,
+                        "Bearer ${TokenHolder.access_token}"
+                    )
+                }
             }
         }
+
         addFavoriteViewModel.addFavoriteLiveData.observe(viewLifecycleOwner) {
             if (it.is_favorite) {
                 MotionToast.createToast(
@@ -77,7 +80,19 @@ class DetailProductFragment : Fragment() {
                     MotionToast.TOAST_SUCCESS,
                     MotionToast.GRAVITY_BOTTOM,
                     MotionToast.LONG_DURATION,
-                    ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular)
+                    ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular),
+                )
+                favorite_image.setImageResource(R.drawable.ic_round_favorite_24)
+            }
+            if (it.available == "product is favorite") {
+                MotionToast.createToast(
+                    requireContext() as Activity,
+                    "available ☹",
+                    "product is favorite !",
+                    MotionToast.TOAST_WARNING,
+                    MotionToast.GRAVITY_BOTTOM,
+                    MotionToast.LONG_DURATION,
+                    ResourcesCompat.getFont(requireContext() as Activity, R.font.helvetica_regular),
                 )
                 favorite_image.setImageResource(R.drawable.ic_round_favorite_24)
             }
@@ -118,6 +133,8 @@ class DetailProductFragment : Fragment() {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
     }
+
+
 
     override fun onResume() {
         super.onResume()

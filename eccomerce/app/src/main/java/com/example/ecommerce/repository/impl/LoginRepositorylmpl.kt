@@ -12,14 +12,15 @@ class LoginRepositorylmpl(
 ) : LoginRepository {
     override fun login(username: String, password: String): Single<Login> {
         return loginDataSource.login(username, password).doOnSuccess {
-            TokenHolder.updateToken(it.access_token,it.access_token)
-            localLoginDataSource.accessToken(it.access_token,it.refresh_token)
+            TokenHolder.updateToken(it.access_token, it.access_token)
+            localLoginDataSource.accessToken(it.access_token, it.refresh_token)
         }
     }
 
     override fun checkLogin(): Boolean {
         return localLoginDataSource.checkLogin()
     }
+
 
 
 }
