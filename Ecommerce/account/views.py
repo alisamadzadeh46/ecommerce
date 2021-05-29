@@ -20,4 +20,4 @@ class AddFavorite(APIView):
                 data.save()
                 return Response(data.data, status=status.HTTP_201_CREATED)
 
-        return Response({"available": "product is favorite "}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({"available": "product is favorite"})
