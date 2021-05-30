@@ -22,5 +22,17 @@
         <argument
             android:name="id"
             app:argType="com.example.ecommerce.model.Category" />
+        <action
+            android:id="@+id/action_categoryListFragment_to_detailProductFragment3"
+            app:destination="@id/detailProductFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailProductFragment3"
+        android:name="com.example.ecommerce.ui.fragment.detail.DetailProductFragment"
+        android:label="fragment_detail_product"
+        tools:layout="@layout/fragment_detail_product" >
+        <argument
+            android:name="product"
+            app:argType="com.example.ecommerce.model.Product" />
     </fragment>
 </navigation>

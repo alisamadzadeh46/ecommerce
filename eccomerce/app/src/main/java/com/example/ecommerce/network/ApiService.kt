@@ -65,7 +65,7 @@ interface ApiService {
     ): Single<List<FavoriteList>>
 
     @GET("home/categorydetail/{id}/")
-    fun categoryDetail(@Path("id") id: Int): Single<List<Category>>
+    fun categoryDetail(@Path("id") id: Int): Single<List<Product>>
 }
 
 

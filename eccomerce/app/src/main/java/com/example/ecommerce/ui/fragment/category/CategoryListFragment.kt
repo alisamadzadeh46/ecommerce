@@ -6,13 +6,25 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
+import com.example.ecommerce.ui.adapter.AdapterCategoryDetail
+import com.example.ecommerce.ui.adapter.AdapterRatingProduct
 import com.example.ecommerce.ui.fragment.detail.DetailProductFragmentArgs
 import com.example.ecommerce.utils.Fragment
+import com.example.ecommerce.viewmodel.CategoryDetailViewModel
+import com.example.ecommerce.viewmodel.DetailProductViewModel
+import kotlinx.android.synthetic.main.fragment_category_list.*
+import kotlinx.android.synthetic.main.fragment_detail_product.*
+import kotlinx.android.synthetic.main.fragment_detail_product.recyclerview_rating
 import kotlinx.android.synthetic.main.toolbar.*
+import org.koin.android.ext.android.inject
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import org.koin.core.parameter.parametersOf
 
 
 class CategoryListFragment : Fragment() {
+    private val categoryDetailProductViewModel: CategoryDetailViewModel by viewModel { parametersOf(id) }
     var args: CategoryListFragmentArgs? = null
     var id: Int? = null
     override fun onCreateView(
@@ -25,10 +37,22 @@ class CategoryListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        args = arguments?.let { CategoryListFragmentArgs.fromBundle(it) }
+        id = args?.id?.id
         image_back.setOnClickListener {
             findNavController().popBackStack()
         }
         text_toolbar.text = getString(R.string.category_list)
+        categoryDetailProductViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
+            progress(it)
+        }
+        categoryDetailProductViewModel.categoryDetailLiveData.observe(viewLifecycleOwner) {
+            val adapterCategoryDetail: AdapterCategoryDetail by inject { parametersOf(it) }
+            category_list.adapter = adapterCategoryDetail
+        }
+        category_list.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
     }
 
 

@@ -38,6 +38,7 @@ class App : Application() {
                 )
             }
             factory { (category: List<Category>) -> CategoryAdapter(category, get()) }
+            factory { (product: List<Product>) -> AdapterCategoryDetail(product, get()) }
             factory { (category: List<Category>) -> CategoryListAdapter(category, get()) }
             factory { (product: List<Product>) -> AmazingAdapter(product, get()) }
             factory { (property: List<Property>) -> PropertyProductAdapter(property) }
@@ -51,7 +52,12 @@ class App : Application() {
                 )
             }
             factory<AddFavoriteRepository> { AddFavoriteImpl(RemoteAddFavoriteDataSource(get())) }
-            factory { (favoriteList: List<FavoriteList>) -> AdapterListFavorite(favoriteList, get()) }
+            factory { (favoriteList: List<FavoriteList>) ->
+                AdapterListFavorite(
+                    favoriteList,
+                    get()
+                )
+            }
             factory<PropertyProductRepository> {
                 PropertyProductImpl(
                     RemotePropertyProductDataSource(
@@ -89,6 +95,12 @@ class App : Application() {
                     LocalRegisterDataSource(get())
                 )
             }
+
+            factory<CategoryDetailRepository> {
+                CategoryDetailImpl(
+                    RemoteCategoryDetailDataSource(get()),
+                )
+            }
             single<SharedPreferences> { this@App.getSharedPreferences("user_token", MODE_PRIVATE) }
             viewModel {
                 HomeViewModel(get(), get(), get())
@@ -119,6 +131,9 @@ class App : Application() {
 
             viewModel {
                 FavoriteListViewModel(get())
+            }
+            viewModel { (id: Int) ->
+                CategoryDetailViewModel(get(), id)
             }
 
 

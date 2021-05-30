@@ -32,7 +32,7 @@ class DetailProductFragment : Fragment() {
     private val detailProductViewModel: DetailProductViewModel by viewModel { parametersOf(id) }
     private val loginViewModel: LoginViewModel by viewModel()
     private val addFavoriteViewModel: AddFavoriteViewModel by viewModel()
-    var args: DetailProductFragmentArgs? = null
+    private var args: DetailProductFragmentArgs? = null
     var id: Int? = null
     val product: String? = null
     override fun onCreateView(
