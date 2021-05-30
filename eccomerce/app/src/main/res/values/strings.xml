@@ -25,4 +25,8 @@
     <string name="address_list">address list</string>
     <string name="information">information</string>
     <string name="category_list">Category list</string>
+    <string name="basket_summary">Basket Summary</string>
+    <string name="list_of_goods">List of goods</string>
+    <string name="discount">discount</string>
+    <string name="total">total</string>
 </resources>
