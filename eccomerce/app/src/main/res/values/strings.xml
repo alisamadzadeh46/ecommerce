@@ -24,4 +24,5 @@
     <string name="comment_list">comment list</string>
     <string name="address_list">address list</string>
     <string name="information">information</string>
+    <string name="category_list">Category list</string>
 </resources>
