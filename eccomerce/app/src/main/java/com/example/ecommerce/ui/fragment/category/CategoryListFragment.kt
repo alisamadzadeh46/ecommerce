@@ -7,13 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.ecommerce.R
+import com.example.ecommerce.ui.fragment.detail.DetailProductFragmentArgs
 import com.example.ecommerce.utils.Fragment
 import kotlinx.android.synthetic.main.toolbar.*
 
 
 class CategoryListFragment : Fragment() {
-
-
+    var args: CategoryListFragmentArgs? = null
+    var id: Int? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

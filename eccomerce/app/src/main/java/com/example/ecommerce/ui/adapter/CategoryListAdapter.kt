@@ -3,9 +3,11 @@ package com.example.ecommerce.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ecommerce.R
 import com.example.ecommerce.model.Category
+import com.example.ecommerce.ui.fragment.category.CategoryFragmentDirections
 import com.example.ecommerce.ui.fragment.home.ImageLoading
 import kotlinx.android.synthetic.main.item_category.view.*
 
@@ -33,6 +35,13 @@ class CategoryListAdapter(val category: List<Category>, private val imageLoading
             itemView.apply {
                 imageLoading.load(image_category, category.image)
                 category_text.text = category.title
+                setOnClickListener {
+                    findNavController().navigate(
+                        CategoryFragmentDirections.actionCategoryFragmentToCategoryListFragment(
+                            category
+                        )
+                    )
+                }
             }
         }
     }

@@ -9,5 +9,18 @@
         android:id="@+id/categoryFragment"
         android:name="com.example.ecommerce.ui.fragment.category.CategoryFragment"
         android:label="fragment_category"
-        tools:layout="@layout/fragment_category" />
+        tools:layout="@layout/fragment_category" >
+        <action
+            android:id="@+id/action_categoryFragment_to_categoryListFragment"
+            app:destination="@id/categoryListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryListFragment"
+        android:name="com.example.ecommerce.ui.fragment.category.CategoryListFragment"
+        android:label="fragment_category_list"
+        tools:layout="@layout/fragment_category_list" >
+        <argument
+            android:name="id"
+            app:argType="com.example.ecommerce.model.Category" />
+    </fragment>
 </navigation>

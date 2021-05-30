@@ -63,6 +63,9 @@ interface ApiService {
     fun listFavorite(
         @Header("Authorization") access_token: String
     ): Single<List<FavoriteList>>
+
+    @GET("home/categorydetail/{id}/")
+    fun categoryDetail(@Path("id") id: Int): Single<List<Category>>
 }
 
 
