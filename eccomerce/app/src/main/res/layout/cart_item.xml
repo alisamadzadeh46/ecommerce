@@ -98,5 +98,16 @@
         app:layout_constraintHorizontal_bias="0.771"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:padding="4dp"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/add"
+        app:layout_constraintStart_toEndOf="@+id/low" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
