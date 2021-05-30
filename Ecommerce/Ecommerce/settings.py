@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     # My app
     'home.apps.HomeConfig',
     'account.apps.AccountConfig',
+    'cart.apps.CartConfig',
 
 ]
 
