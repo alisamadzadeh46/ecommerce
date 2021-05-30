@@ -50,4 +50,3 @@ class PriceSerializer(serializers.ModelSerializer):
         fields = "__all__"
 
 
-
