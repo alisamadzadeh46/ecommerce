@@ -7,6 +7,7 @@ from home.models import Product
 class Cart(models.Model):
     user = models.ForeignKey(User, related_name='user', on_delete=models.CASCADE)
     product = models.ForeignKey(Product, related_name='product', on_delete=models.CASCADE)
+    is_add = models.BooleanField(default=False)
     count = models.IntegerField(verbose_name='count')
     pay = models.BooleanField(default=False)
 
