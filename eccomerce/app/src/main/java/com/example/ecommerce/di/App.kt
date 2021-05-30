@@ -38,6 +38,7 @@ class App : Application() {
                 )
             }
             factory { (category: List<Category>) -> CategoryAdapter(category, get()) }
+            factory { (category: List<Category>) -> CategoryListAdapter(category, get()) }
             factory { (product: List<Product>) -> AmazingAdapter(product, get()) }
             factory { (property: List<Property>) -> PropertyProductAdapter(property) }
             factory { (rating: List<Rating>) -> AdapterRatingProduct(rating) }

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
-import com.example.ecommerce.ui.adapter.CategoryAdapter
+import com.example.ecommerce.ui.adapter.CategoryListAdapter
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.HomeViewModel
 import kotlinx.android.synthetic.main.fragment_category.*
@@ -30,11 +30,11 @@ class CategoryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         homeViewModel.categoryLiveDate.observe(viewLifecycleOwner) {
-            val categoryAdapter: CategoryAdapter by inject { parametersOf(it) }
+            val categoryAdapter: CategoryListAdapter by inject { parametersOf(it) }
             category.adapter = categoryAdapter
         }
         category.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
     }
 
 }
