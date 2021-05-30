@@ -6,6 +6,7 @@ app_name = 'home'
 urlpatterns = [
     path('', SliderList.as_view(), name='home'),
     path('category/', CategoryList.as_view(), name='category'),
+    path('categorydetail/<int:pk>/', CategoryDetail.as_view(), name='category_detail'),
     path('product/', ProductList.as_view(), name='amazing'),
     path('product/<int:pk>/', DetailProduct.as_view(), name='product'),
     path('property/<int:pk>/', PropertyProduct.as_view(), name='property'),

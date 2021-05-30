@@ -66,3 +66,12 @@ class ComparisonProduct(ListAPIView):
         id = self.kwargs['pk']
         queryset = Product.objects.filter(category=id)
         return queryset
+
+
+class CategoryDetail(ListAPIView):
+    serializer_class = ProductSerializer
+
+    def get_queryset(self):
+        id = self.kwargs['pk']
+        queryset = Product.objects.filter(category=id)
+        return queryset
