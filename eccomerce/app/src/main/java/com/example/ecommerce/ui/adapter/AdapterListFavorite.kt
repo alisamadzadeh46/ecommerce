@@ -45,8 +45,11 @@ class AdapterListFavorite(
     class ListFavoriteViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(favoriteList: FavoriteList, imageLoading: ImageLoading) {
             itemView.apply {
-                imageLoading.load(imageView, "http://127.0.0.1:8000${favoriteList.product.image}")
-                Log.i("TAG", "http://127.0.0.1:8000${favoriteList.product.image}")
+                /*
+                you must replace your ip address
+                 */
+                imageLoading.load(imageView, "http://192.168.8.157:8000${favoriteList.product.image}")
+                Log.i("TAG", "http://192.168.8.157:8000${favoriteList.product.image}")
                 text_title.text = favoriteList.product.title
                 setOnClickListener {
                     findNavController().navigate(
