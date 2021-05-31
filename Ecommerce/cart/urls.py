@@ -3,5 +3,5 @@ from .views import *
 
 app_name = 'cart'
 urlpatterns = [
-    path('add/<int:pk>/', AddCart.as_view(), name='add')
+    path('add/<int:pk>/<int:count>/', AddCart.as_view(), name='add')
 ]

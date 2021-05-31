@@ -8,11 +8,18 @@ from .serializer import *
 class AddCart(APIView):
     permission_classes = [IsAuthenticated]
 
-    def post(self, request, pk):
+    def post(self, request, pk, count):
         user = request.user
         check = Cart.objects.filter(is_add=True, product_id=pk, user_id=user.id).exists()
+        if check:
+            queryset = Cart.objects.update(is_add=True, product_id=pk, user_id=user.id, count=count)
+            self.check_object_permissions(request, queryset)
+            data = AddCartSerializer(instance=queryset, data=request.data, partial=True)
+            if data.is_valid():
+                data.save()
+                return Response(queryset.data, status=status.HTTP_201_CREATED)
         if not check:
-            queryset = Cart.objects.create(is_add=True, product_id=pk, count=1, user_id=user.id)
+            queryset = Cart.objects.create(count=count, is_add=True, product_id=pk, user_id=user.id)
             self.check_object_permissions(request, queryset)
             data = AddCartSerializer(instance=queryset, data=request.data, partial=True)
             if data.is_valid():
