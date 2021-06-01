@@ -13,7 +13,7 @@ class AddCartImpl(
         id: Int,
         count: Int,
         price: Int
-    ): Single<AddCart> =
+    ): Single<List<AddCart>> =
         addCartDataSource.addCart(access_token, id, count, price)
 
 

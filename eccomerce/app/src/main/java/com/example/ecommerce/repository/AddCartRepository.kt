@@ -9,5 +9,5 @@ interface AddCartRepository {
         id: Int,
         count: Int,
         price: Int
-    ): Single<AddCart>
+    ): Single<List<AddCart>>
 }

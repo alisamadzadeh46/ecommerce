@@ -74,7 +74,7 @@ interface ApiService {
         @Path("id") id: Int,
         @Path("count") count: Int,
         @Path("price") price: Int,
-    ): Single<AddCart>
+    ): Single<List<AddCart>>
 
 }
 
