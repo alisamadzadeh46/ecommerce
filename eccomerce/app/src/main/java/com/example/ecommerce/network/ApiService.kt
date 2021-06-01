@@ -66,12 +66,22 @@ interface ApiService {
 
     @GET("home/categorydetail/{id}/")
     fun categoryDetail(@Path("id") id: Int): Single<List<Product>>
+
+
+    @POST("cart/add/{id}/{count}/{price}/")
+    fun addCart(
+        @Header("Authorization") access_token: String,
+        @Path("id") id: Int,
+        @Path("count") count: Int,
+        @Path("price") price: Int,
+    ): Single<AddCart>
+
 }
 
 
 fun client(): ApiService {
     val retrofit = Retrofit.Builder()
-        .baseUrl("http://192.168.8.157:8000/")
+        .baseUrl("http://192.168.1.37:8000/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
         .build()
