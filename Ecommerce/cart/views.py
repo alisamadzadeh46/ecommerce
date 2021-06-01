@@ -22,7 +22,7 @@ class AddCart(APIView):
                     return Response(data.data, status=status.HTTP_200_OK)
                 return Response(data.errors, status=status.HTTP_400_BAD_REQUEST)
             except:
-                return Response({'update': True}, status=status.HTTP_201_CREATED)
+                return Response({'update': True, 'price': count * price}, status=status.HTTP_201_CREATED)
 
         if not check:
             queryset = Cart.objects.create(count=count, price=price * count, is_add=True, product_id=pk,
