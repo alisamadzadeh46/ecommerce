@@ -29,4 +29,5 @@
     <string name="list_of_goods">List of goods</string>
     <string name="discount">discount</string>
     <string name="total">total</string>
+    <string name="zero">0</string>
 </resources>

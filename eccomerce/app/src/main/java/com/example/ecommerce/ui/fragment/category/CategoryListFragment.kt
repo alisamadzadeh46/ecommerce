@@ -9,14 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.ecommerce.R
 import com.example.ecommerce.ui.adapter.AdapterCategoryDetail
-import com.example.ecommerce.ui.adapter.AdapterRatingProduct
-import com.example.ecommerce.ui.fragment.detail.DetailProductFragmentArgs
 import com.example.ecommerce.utils.Fragment
 import com.example.ecommerce.viewmodel.CategoryDetailViewModel
-import com.example.ecommerce.viewmodel.DetailProductViewModel
 import kotlinx.android.synthetic.main.fragment_category_list.*
-import kotlinx.android.synthetic.main.fragment_detail_product.*
-import kotlinx.android.synthetic.main.fragment_detail_product.recyclerview_rating
 import kotlinx.android.synthetic.main.toolbar.*
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel

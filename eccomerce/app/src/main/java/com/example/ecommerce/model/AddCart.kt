@@ -5,7 +5,7 @@ data class AddCart(
     val id: Int,
     val is_add: Boolean,
     val pay: Boolean,
-    val price: String,
+    val price: Int,
     val product: Product,
     val update: Boolean,
 )

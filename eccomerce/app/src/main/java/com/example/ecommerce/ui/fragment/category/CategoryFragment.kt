@@ -38,7 +38,7 @@ class CategoryFragment : Fragment() {
             category.adapter = categoryAdapter
         }
         image_back.visibility = View.GONE
-        text_toolbar.text = "Category"
+        text_toolbar.text = getString(R.string.category)
         homeViewModel.progressbarLiveData.observe(viewLifecycleOwner) {
             progress(it)
         }
