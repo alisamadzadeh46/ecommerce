@@ -10,7 +10,8 @@ class Cart(models.Model):
     is_add = models.BooleanField(default=False)
     count = models.IntegerField(verbose_name='count')
     pay = models.BooleanField(default=False)
-    price = models.IntegerField(max_length=100, verbose_name='total price')
+    price = models.IntegerField(verbose_name='price')
+    total_price = models.IntegerField(verbose_name='total price')
 
     class Meta:
         verbose_name = 'Cart'
